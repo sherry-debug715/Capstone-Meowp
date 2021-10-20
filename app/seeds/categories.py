@@ -18,6 +18,7 @@ def seed_categories():
     db.session.add(categories2)
     db.session.add(categories3)
     db.session.add(categories4)
+    db.session.commit()
 
 def undo_categories():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')

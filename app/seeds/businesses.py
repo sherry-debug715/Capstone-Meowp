@@ -2,7 +2,7 @@ from app.models import db, Business
 
 def seed_businesses():
     business1 = Business(
-        owner_id=1,
+        owner_id=6,
         category_id=1,
         title='Blue Cactus Grill',
         description='Best burger in town',
@@ -49,7 +49,7 @@ def seed_businesses():
         zip_code='78701'
     )
     business4 = Business(
-        owner_id=4,
+        owner_id=5,
         category_id=3,
         title='Oakhurst Cleaners & Laundry',
         description='Dry Cleaning, Sewing&Alterations, Clothing Rental',
@@ -64,7 +64,7 @@ def seed_businesses():
         zip_code='93644'
     )
     business5 = Business(
-        owner_id=5,
+        owner_id=4,
         category_id=4,
         title='Courtyard by Marriott Marathon Florida Keys',
         description='Beautiful beachfront family get away',
@@ -72,7 +72,6 @@ def seed_businesses():
         media_2='https://s3-media0.fl.yelpcdn.com/bphoto/4BkrnmxPnXTgfVM3Ja2cew/o.jpg',
         media_3='https://s3-media0.fl.yelpcdn.com/bphoto/S7rhJeI9jNBIRs_9qPkSeA/o.jpg',
         media_4='https://s3-media0.fl.yelpcdn.com/bphoto/jtrK0jqTKjLO3As7G0OpxA/o.jpg',
-        media_5='',
         address='2146 Overseas Highway',
         city='Marathon',
         state='FL',
