@@ -18,30 +18,30 @@ class Business(db.Model):
     state = db.Column(db.String, nullable=False)
     zip_code = db.Column(db.String, nullable=False)
 
-# many to one relationship with users
-user = db.relationship('User', back_populates='businesses', lazy='subquery')
-# one to many relationship with reviews
-reviews = db.relationship('Review', back_populates='business', cascade="all, delete-orphan")
-# many to one relationship with categories
-category = db.relationship('Category', back_populates='businesses', uselist='False')
+    # many to one relationship with users
+    user = db.relationship('User', back_populates='businesses', lazy='subquery')
+    # one to many relationship with reviews
+    reviews = db.relationship('Review', back_populates='business', cascade="all, delete-orphan")
+    # many to one relationship with categories
+    category = db.relationship('Category', back_populates='businesses')
 
 
-def to_dict(self):
-    return {
-        'id': self.id,
-        'owner_id': self.owner_id,
-        'category_id': self.category_id,
-        'title': self.title,
-        'description': self.description,
-        'media_1': self.media_1,
-        'media_2': self.media_2,
-        'media_3': self.media_3,
-        'media_4': self.media_4,
-        'media_5': self.media_5,
-        'address': self.address,
-        'city': self.city,
-        'state': self.state,
-        'zip_code': self.zip_code,
-        'category': self.category,
-        'review': [review.to_dict() for review in self.reviews]
-    }
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'owner_id': self.owner_id,
+            'category_id': self.category_id,
+            'title': self.title,
+            'description': self.description,
+            'media_1': self.media_1,
+            'media_2': self.media_2,
+            'media_3': self.media_3,
+            'media_4': self.media_4,
+            'media_5': self.media_5,
+            'address': self.address,
+            'city': self.city,
+            'state': self.state,
+            'zip_code': self.zip_code,
+            # 'category': self.category.to_dict(),
+            # 'review': [review.to_dict() for review in self.reviews]
+        }

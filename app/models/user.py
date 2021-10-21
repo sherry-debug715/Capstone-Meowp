@@ -32,20 +32,20 @@ class User(db.Model, UserMixin):
             'email': self.email
         }
 
-# one to many relationship with businesses
-businesses = db.relationship('Business', back_populates='user', lazy='subquery', cascade="all, delete-orphan")
-# one to many relationship with reviews
-reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
+    # one to many relationship with businesses
+    businesses = db.relationship('Business', back_populates='user', lazy='subquery', cascade="all, delete-orphan")
+    # one to many relationship with reviews
+    reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
-def to_dict(self):
-    return {
-        'id': self.id,
-        'username': self.username,
-        'email': self.email,
-        'zip_code': self.zip_code,
-        'photo':self.photo,
-        'city':self.city,
-        'state':self.state,
-        'business': [business.to_dict() for business in self.businesses],
-        'review': [review.to_dict() for review in self.reviews]
-    }
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'zip_code': self.zip_code,
+            'photo':self.photo,
+            'city':self.city,
+            'state':self.state,
+            # 'business': [business.to_dict() for business in self.businesses],
+            # 'review': [review.to_dict() for review in self.reviews]
+        }
