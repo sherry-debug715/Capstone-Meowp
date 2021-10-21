@@ -8,13 +8,12 @@ class Category(db.Model):
     name = db.Column(db.String, nullable=False)
 
 
-# one to many relationship with businesses
-businesses = db.relationship('Business', back_populates='category')
+    # one to many relationship with businesses
+    businesses = db.relationship('Business', back_populates='category')
 
 
-def to_dict(self):
-    return {
-        'id': self.id,
-        'name': self.name,
-        'businesses': [business.to_dict() for business in self.businesses]
-    }
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name
+        }
