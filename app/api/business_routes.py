@@ -2,8 +2,8 @@ from colors import *
 from flask import Blueprint
 from app.models import db, Business
 from flask_wtf.csrf import generate_csrf
-from app.forms.business_form import BusinessForm
-from flask_login import current_user
+from app.forms.create_business_form import BusinessForm
+from flask_login import current_user, login_required
 
 business_routes = Blueprint("businesses", __name__, url_prefix="/")
 
