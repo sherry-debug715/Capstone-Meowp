@@ -11,7 +11,6 @@ import { authenticate } from './store/session';
 import BusinessesDisplay from './components/BusinessesDisplay';
 import BusinessDetail from './components/BusinessDetail';
 
-
 function App() {
 
   const [loaded, setLoaded] = useState(false);

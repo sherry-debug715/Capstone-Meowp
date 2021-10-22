@@ -4,9 +4,9 @@ from app.models import db, Business
 from flask_wtf.csrf import generate_csrf
 from app.forms import BusinessForm
 from flask_login import current_user, login_required
-from app.s3aws_upload import (
-    upload_file_to_s3, allowed_file, get_unique_filename
-)
+# from app.s3aws_upload import (
+#     upload_file_to_s3, allowed_file, get_unique_filename
+# )
 
 
 business_routes = Blueprint("businesses", __name__, url_prefix="/")
