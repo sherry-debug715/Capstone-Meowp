@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getAllBusinessesThunk } from '../../store/businesses';
 import Card from '../PictureCard';
 
@@ -16,17 +17,19 @@ const BusinessesDisplay = () => {
     }, [dispatch]);
 
     const allBusinesses = businesesArray?.map(business => (
-        <div key={business.id} className="businesses-display-container">
-            <div className="business-img-container">
-                <Link to={`/businesses/${business?.id}`}>
-                    <Card
-                    src={business?.media_1}
-                    alt={business?.description}
-                    businessName={business?.title}
-                    />
-                </Link>
+
+            <div key={business.id} className="businesses-display-container">
+                <div className="business-img-container">
+                    <NavLink to={`/businesses/${business?.id}`}>
+                        <Card
+                        src={business?.media_1}
+                        alt={business?.description}
+                        businessName={business?.title}
+                        />
+                    </NavLink>
+                </div>
             </div>
-        </div>
+
     ))
 
     return (
