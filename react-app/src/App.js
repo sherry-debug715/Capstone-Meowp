@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import BusinessesDisplay from './components/BusinessesDisplay';
+import BusinessDetail from './components/BusinessDetail';
+
 
 function App() {
 
@@ -47,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/businesses' exact={true} >
           <BusinessesDisplay />
+        </Route>
+        <Route path='/businesses/:businessId' exact={true} >
+          <BusinessDetail />
         </Route>
       </Switch>
     </BrowserRouter>
