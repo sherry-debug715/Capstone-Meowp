@@ -1,9 +1,13 @@
 from colors import *
-from flask import Blueprint
+from flask import Blueprint, request
 from app.models import db, Business
 from flask_wtf.csrf import generate_csrf
-from app.forms.create_business_form import BusinessForm
+from app.forms import BusinessForm
 from flask_login import current_user, login_required
+from app.s3aws_upload import (
+    upload_file_to_s3, allowed_file, get_unique_filename
+)
+
 
 business_routes = Blueprint("businesses", __name__, url_prefix="/")
 
@@ -29,3 +33,10 @@ def delete_business(id):
     db.session.delete(deleted_business)
     db.session.commit()
     return delete_business.to_dict()
+
+#create a new business
+# @business_routes.route('/businesses', methods=['POST'])
+# @login_required
+# def create_business():
+#     create_business_form = BusinessForm()
+#     create_business_form['csrf_token'].data = request.cookies['csrf_token']
