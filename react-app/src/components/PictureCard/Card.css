@@ -1,0 +1,18 @@
+.card-container {
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #eeeeef;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.card-container:hover {
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
+}
+
+.business-image>img {
+    object-fit: fill;
+    width:300px;
+    height: 250px;
+    display: block;
+}

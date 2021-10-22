@@ -42,6 +42,5 @@ class Business(db.Model):
             'city': self.city,
             'state': self.state,
             'zip_code': self.zip_code,
-            # 'category': self.category.to_dict(),
-            # 'review': [review.to_dict() for review in self.reviews]
+            'review': [review.to_dict() for review in self.reviews]
         }
