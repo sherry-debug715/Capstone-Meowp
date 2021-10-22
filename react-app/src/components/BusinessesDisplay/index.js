@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { getAllBusinessesThunk } from '../../store/businesses';
 import Card from '../PictureCard';
-
+import './businessesDisplay.css';
 
 const BusinessesDisplay = () => {
 
