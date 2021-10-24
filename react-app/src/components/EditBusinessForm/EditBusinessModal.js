@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditBusinessForm from './index';
 
 
-function EditBusinessModal(){
+function EditBusinessModal( { businessesObj } ){
     const [showModal, setShowModal] = useState(false);
     return (
         <>
@@ -17,7 +17,7 @@ function EditBusinessModal(){
         </div>
          {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <EditBusinessForm />
+              <EditBusinessForm businessesObj={businessesObj} />
             </Modal>
           )}
         </>
