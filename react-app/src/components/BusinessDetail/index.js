@@ -75,11 +75,7 @@ const BusinessDetail = () => {
                                 <div className="contents">
                                     <h1 className="business-name-businessDetail">{businessesObj?.business?.title}</h1>
                                     <div className="edit-business-button-container">
-                                    {/* <Link
-                                    className="edit-business-link"
-                                    to={`/businesses/${businessId}/edit`}
-                                    >edit
-                                    </Link> */}
+                                        <EditBusinessModal business={businessesObj?.business} />
                                     </div>
                                     <div className="review-amount">
                                         {businessesObj?.business?.review?.length} reviews

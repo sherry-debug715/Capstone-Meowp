@@ -24,9 +24,6 @@ function EditBusinessForm() {
     const [media_5, setMedia5] = useState("")
     const [description, setDescription] = useState("")
 
-    // useEffect(() => {
-    //     if(businessId)
-    // })
 
     const handleSubmit = async(e) => {
         e.preventDefault();
