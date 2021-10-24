@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 
 const LoginForm = () => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +18,14 @@ const LoginForm = () => {
       setErrors(data);
     }
   };
+
+  const demoUser = async (e) => {
+    e.preventDefault();
+    const weAreIn = await dispatch(login("demo@aa.io", "password"));
+    if (weAreIn) {
+      history.push("/home")
+    }
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -58,6 +67,11 @@ const LoginForm = () => {
         />
         <button type='submit'>Login</button>
       </div>
+      <button
+        className="demo_user_modal"
+        type='submit' onClick={demoUser}>
+          Demo User
+      </button>
     </form>
   );
 };
