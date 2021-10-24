@@ -41,8 +41,6 @@ function EditBusinessForm( { businessesObj } ) {
 
     console.log("==========> this is business obj",businessesObj)
     const handleEditBusinessSubmit = async(e) => {
-        e.preventDefault();
-
         const payload = {
             id:businessesObj?.business?.id,
             title,
@@ -53,10 +51,8 @@ function EditBusinessForm( { businessesObj } ) {
             state,
             zip_code,
         };
-        console.log("this is payload====>",payload); //working
 
         let editedBusiness = await dispatch(editBusinessThunk(payload))
-        console.log("============>",editedBusiness) //undefined
         return history.push(`/businesses/${editedBusiness?.id}`);
 
     };

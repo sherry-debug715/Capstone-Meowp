@@ -20,7 +20,7 @@ const BusinessesDisplay = () => {
 
             <div key={business.id} className="businesses-display-container">
                 <div className="business-img-container">
-                    <NavLink to={`/businesses/${business?.id}`}>
+                    <NavLink style={{ textDecoration:'none'}} to={`/businesses/${business?.id}`}>
                         <Card
                         src={business?.media_1}
                         alt={business?.description}

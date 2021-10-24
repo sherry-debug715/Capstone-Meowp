@@ -72,9 +72,7 @@ def edit_business(id):
     data = form.data
     if form.validate_on_submit():
         editedBusiness = Business.query.filter(Business.id == id).first()
-
         editedBusiness.owner_id = current_user.id
-        editedBusiness.category_id = data['category_id']
         editedBusiness.title = data['title']
         editedBusiness.description = data['description']
         editedBusiness.media_1 = data['media_1']

@@ -124,3 +124,4 @@ export default function businessesReducer(state = initialState, action) {
             return state
     }
 }
+
