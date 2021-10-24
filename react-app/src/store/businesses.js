@@ -1,7 +1,8 @@
 const GET_BUSINESSES = 'businesses/GET_BUSINESSES'
 const BUSINESS_DETAIL = 'businesses/BUSINESS_DETAIL'
 const DELETE_BUSINESS = 'businesses/DELETE_BUSINESS'
-
+const CREATE_BUSINESS = 'businesses/CREATE_BUSINESS'
+const EDIT_BUSINESS = 'businesses/EDIT_BUSINESS'
 
 const getBusinessesAction = businessesObj => {
     return {
@@ -21,6 +22,20 @@ const deleteBusinessAction = deleteBusinessObj => {
     return {
         type: DELETE_BUSINESS,
         payload: deleteBusinessObj
+    }
+}
+
+const createBusinessAction = businessObj => {
+    return {
+        type: CREATE_BUSINESS,
+        payload: businessObj
+    }
+}
+
+const editBusinessAction = editBusinesssObj => {
+    return {
+        type: EDIT_BUSINESS,
+        payload: editBusinesssObj
     }
 }
 
@@ -54,6 +69,38 @@ export const deleteBusinessThunk = id => async(dispatch) => {
     }
 }
 
+export const createBusinessThunk = business => async(dispatch) => {
+    const response = await fetch('/api/businesses/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(business)
+    })
+
+    if (response.ok) {
+        let newBusiness = await response.json()
+        dispatch(createBusinessAction(newBusiness))
+        return newBusiness
+    }
+}
+
+export const editBusinessThunk = business => async(dispatch) => {
+    const response = await fetch(`/api/businesses/edit/${business.id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(business)
+    })
+
+    if(response.ok) {
+        let editedBusiness = await response.json()
+        dispatch(editBusinessAction(editedBusiness))
+        return editedBusiness
+    }
+}
+
 
 const initialState = {}
 
@@ -66,6 +113,12 @@ export default function businessesReducer(state = initialState, action) {
             return action.payload
         case DELETE_BUSINESS:
             delete newState[action.payload.id]
+            return newState
+        case CREATE_BUSINESS:
+            newState[action.payload.id] = action.payload
+            return newState
+        case EDIT_BUSINESS:
+            newState[action.payload.id] = action.payload
             return newState
         default:
             return state
