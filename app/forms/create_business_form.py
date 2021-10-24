@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, ValidationError
-from wtforms import IntegerField,StringField
+from wtforms import IntegerField, StringField, SubmitField
 
 
 def businessPhotoEmpty(form, field):
@@ -23,3 +23,5 @@ class BusinessForm(FlaskForm):
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
     zip_code = StringField('zip_code', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
