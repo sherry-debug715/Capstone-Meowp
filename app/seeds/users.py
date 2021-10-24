@@ -4,19 +4,19 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', hashed_password='password')
+        username='Demo', email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', hashed_password='password', photo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC7jTi0tRmc03WaV4ZxuA-LuKnc2GDUbb5Ng&usqp=CAU', city='New York', state='New York')
+        username='marnie', email='marnie@aa.io', password='password', photo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC7jTi0tRmc03WaV4ZxuA-LuKnc2GDUbb5Ng&usqp=CAU', city='New York', state='New York')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', hashed_password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='Austin', state='Texas' )
+        username='bobbie', email='bobbie@aa.io', password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='Austin', state='Texas' )
     raegan = User(
-        username='Raegan', email='raegan@aa.io', hashed_password='password', photo='https://s3-media0.fl.yelpcdn.com/photo/ROYrT7cuomHHp4A8_mM93g/300s.jpg', city='Marathon', state='Florida' )
+        username='Raegan', email='raegan@aa.io', password='password', photo='https://s3-media0.fl.yelpcdn.com/photo/ROYrT7cuomHHp4A8_mM93g/300s.jpg', city='Marathon', state='Florida' )
     matthew = User(
-        username='matthew', email='matthew@aa.io', hashed_password='password', photo='https://s3-media0.fl.yelpcdn.com/photo/AFsVcMxL0dDSnknk6BSPGg/300s.jpg', city='Oakhurst', state='California' )
+        username='matthew', email='matthew@aa.io', password='password', photo='https://s3-media0.fl.yelpcdn.com/photo/AFsVcMxL0dDSnknk6BSPGg/300s.jpg', city='Oakhurst', state='California' )
     jeanne = User(
-        username='Jeanne', email='Jeanne@aa.io', hashed_password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='San Francisco', state='California' )
+        username='Jeanne', email='Jeanne@aa.io', password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='San Francisco', state='California' )
     jhone = User(
-        username='Jhone', email='Jhone@aa.io', hashed_password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='Fairfield', state='Connecticut' )
+        username='Jhone', email='Jhone@aa.io', password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='Fairfield', state='Connecticut' )
 
 
     db.session.add(demo)

@@ -95,9 +95,9 @@ export const editBusinessThunk = business => async(dispatch) => {
     })
 
     if(response.ok) {
-        let editedBusiness = await response.json()
-        dispatch(editBusinessAction(editedBusiness))
-        return editedBusiness
+        let edittedBusiness = await response.json()
+        dispatch(editBusinessAction(edittedBusiness))
+        return edittedBusiness
     }
 }
 
@@ -124,3 +124,4 @@ export default function businessesReducer(state = initialState, action) {
             return state
     }
 }
+

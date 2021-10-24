@@ -53,9 +53,6 @@ function App() {
         <Route path='/businesses/:businessId' exact={true} >
           <BusinessDetail />
         </Route>
-        {/* <Route path='/businesses/:businessId/edit' exact={true} >
-          <EditBusinessForm />
-        </Route> */}
       </Switch>
     </BrowserRouter>
   );

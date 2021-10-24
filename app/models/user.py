@@ -42,7 +42,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'zip_code': self.zip_code,
             'photo':self.photo,
             'city':self.city,
             'state':self.state,

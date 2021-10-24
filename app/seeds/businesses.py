@@ -86,5 +86,5 @@ def seed_businesses():
     db.session.commit()
 
 def undo_businesses():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE businesses RESTART IDENTITY CASCADE;')
     db.session.commit()

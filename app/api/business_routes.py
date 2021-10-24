@@ -71,17 +71,11 @@ def edit_business(id):
     form["csrf_token"].data = request.cookies["csrf_token"]
     data = form.data
     if form.validate_on_submit():
-        editedBusiness = Business.query.get(Business.id == id)
-
+        editedBusiness = Business.query.filter(Business.id == id).first()
         editedBusiness.owner_id = current_user.id
-        editedBusiness.category_id = data['category_id']
         editedBusiness.title = data['title']
         editedBusiness.description = data['description']
         editedBusiness.media_1 = data['media_1']
-        editedBusiness.media_1 = data['media_2']
-        editedBusiness.media_1 = data['media_3']
-        editedBusiness.media_1 = data['media_4']
-        editedBusiness.media_1 = data['media_5']
         editedBusiness.address = data['address']
         editedBusiness.city = data['city']
         editedBusiness.state = data['state']
