@@ -24,7 +24,7 @@ const LoginForm = () => {
     e.preventDefault();
     const weAreIn = await dispatch(login("demo@aa.io", "password"));
     if (weAreIn) {
-      history.push("/home")
+      history.push("/businesses")
     }
   }
 
@@ -37,7 +37,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/businesses' />;
   }
 
   return (
