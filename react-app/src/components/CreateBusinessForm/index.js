@@ -70,10 +70,8 @@ const CreateBusinessForm = () => {
 
         const newBusiness = await dispatch(createBusinessThunk(createdBusiness));
         console.log("=============>createdBusiness", createdBusiness)
+        return history.push(`/businesses/${newBusiness?.id}`)
 
-        if(newBusiness) {
-            return history.push(`/businesses/${newBusiness?.id}`)
-        }
         // reset()
     };
 
@@ -234,18 +232,6 @@ const CreateBusinessForm = () => {
                             />
                         </div>
                     </div>
-                    <div className="create-category">
-                        <label className="new-category">
-                            Create a new category
-                        </label>
-                        <input
-                            type="text"
-                            required
-                            value={newCategory}
-                            onChange={e => setNewCategory(e.target.value)}
-                        />
-                        <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>
-                    </div>
                     <div className="create-business-buttons">
                         <Button type="submit" className="create-business" variant="danger">Create a New Business</Button>
                         <Button
@@ -258,6 +244,18 @@ const CreateBusinessForm = () => {
                         </Button>{' '}
                     </div>
                 </form>
+                <div className="create-category">
+                        <label className="new-category">
+                            Create a new category
+                        </label>
+                        <input
+                            type="text"
+                            required
+                            value={newCategory}
+                            onChange={e => setNewCategory(e.target.value)}
+                        />
+                        <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>
+                    </div>
             </section>
         </>
     )

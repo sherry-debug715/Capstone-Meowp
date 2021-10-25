@@ -26,6 +26,7 @@ const BusinessDetail = () => {
     return (
         <>
         <div className="page-container">
+            <Link to='/businesses'>back</Link>
             <div className="header-container">
                 <div className="carousel-container">
                     <Carousel>
