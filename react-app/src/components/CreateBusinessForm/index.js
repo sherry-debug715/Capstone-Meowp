@@ -11,12 +11,13 @@ const CreateBusinessForm = () => {
     const currentUser = useSelector( state => state?.session.user);
     const categoriesObj = useSelector( state => state?.categories);
     const categoriesArray = Object.values(categoriesObj)
-    console.log("------> category array",categoriesArray)
+    const defaultCategory = categoriesArray[0]
+    console.log("============>category.id",defaultCategory?.id)
     useEffect(() => {
         dispatch(getAllCategoriesThunk())
     }, [dispatch]);
 
-    const [category_id, setCategoryId] = useState()
+    const [category_id, setCategoryId] = useState(defaultCategory?.id)
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("")
     const [media_1, setMedia1] = useState("")
@@ -150,16 +151,14 @@ const CreateBusinessForm = () => {
                             <label className="categories-select">
                                 Select a Category
                                 <select className="dropdown"
-                                    // value={category_id}
+                                    value={category_id}
                                     onChange={e => {
-                                        setCategoryId(e.target.value)
+                                        setCategoryId(e.target?.value)
                                     }}
                                 >
                                     {categoriesArray?.map(category => {
                                         return (
-                                            <>
-                                                <option value={category.id} onChange={e => setCategoryId(category.id)}>{category.name}</option>
-                                            </>
+                                            <option value={category?.id}>{category?.name}</option>
                                         )
                                     })}
                                 </select>
