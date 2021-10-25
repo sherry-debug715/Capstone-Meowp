@@ -10,7 +10,8 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import BusinessesDisplay from './components/BusinessesDisplay';
 import BusinessDetail from './components/BusinessDetail';
-// import EditBusinessForm from './components/EditBusinessForm';
+import BusinessOfCategory from './components/CategoryFilter';
+
 
 function App() {
 
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route path='/businesses/:businessId' exact={true} >
           <BusinessDetail />
+        </Route>
+        <Route path='/categories/:categoryId' exact={true} >
+          <BusinessOfCategory />
         </Route>
       </Switch>
     </BrowserRouter>

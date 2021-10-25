@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { getAllBusinessesThunk } from '../../store/businesses';
 import Card from '../PictureCard';
