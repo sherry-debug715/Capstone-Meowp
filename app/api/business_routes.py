@@ -41,8 +41,8 @@ def delete_business(id):
 def create_business():
     create_business_form = BusinessForm()
     create_business_form['csrf_token'].data = request.cookies['csrf_token']
-    data = form.data
-    if form.validate_on_submit():
+    data = create_business_form.data
+    if create_business_form.validate_on_submit():
         new_business = Business(
             owner_id=current_user.id,
             category_id=data['category_id'],
@@ -62,7 +62,7 @@ def create_business():
         db.session.commit()
         return new_business.to_dict()
     else:
-        return form.errors
+        return create_business_form.errors
 
 #edit business route
 @business_routes.route('/businesses/edit/<int:id>', methods=['PATCH'])

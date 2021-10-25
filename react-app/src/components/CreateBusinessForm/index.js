@@ -11,7 +11,7 @@ const CreateBusinessForm = () => {
     const currentUser = useSelector( state => state?.session.user);
     const categoriesObj = useSelector( state => state?.categories);
     const categoriesArray = Object.values(categoriesObj)
-
+    console.log("------> category array",categoriesArray)
     useEffect(() => {
         dispatch(getAllCategoriesThunk())
     }, [dispatch]);
@@ -45,7 +45,7 @@ const CreateBusinessForm = () => {
     };
 
     const handleCreateBusiness = async(e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         let createdBusiness = {
             owner_id:currentUser?.id,
@@ -64,11 +64,12 @@ const CreateBusinessForm = () => {
         };
 
         const newBusiness = await dispatch(createBusinessThunk(createdBusiness));
+        console.log("=============>createdBusiness", createdBusiness)
 
         if(newBusiness) {
             return history.push(`/businesses/${newBusiness?.id}`)
         }
-        reset()
+        // reset()
     };
 
     return (
@@ -149,7 +150,7 @@ const CreateBusinessForm = () => {
                             <label className="categories-select">
                                 Select a Category
                                 <select className="dropdown"
-                                    value={category_id}
+                                    // value={category_id}
                                     onChange={e => {
                                         setCategoryId(e.target.value)
                                     }}
