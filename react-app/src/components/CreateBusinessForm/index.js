@@ -2,10 +2,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { createBusinessThunk } from '../../store/businesses';
-import { getAllCategoriesThunk } from '../../store/categories'
+import { createCategoryThunk, getAllCategoriesThunk } from '../../store/categories';
+
 import Button from 'react-bootstrap/Button'
 
 const CreateBusinessForm = () => {
+
     const dispatch = useDispatch();
     const history = useHistory();
     const currentUser = useSelector( state => state?.session.user);
@@ -29,6 +31,8 @@ const CreateBusinessForm = () => {
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [zip_code, setZipCode] = useState("")
+    // state for add category
+    const [newCategory, setNewCategory] = useState("")
 
     const reset = () => {
         setCategoryId()
@@ -72,6 +76,16 @@ const CreateBusinessForm = () => {
         }
         // reset()
     };
+
+    const handleAddNewCategory = async(e) => {
+        e.preventDefault();
+        const payload = {
+            name: newCategory
+        };
+
+        let createdCategory = await dispatch(createCategoryThunk(payload))
+        setNewCategory("")
+    }
 
     return (
         <>
@@ -219,6 +233,18 @@ const CreateBusinessForm = () => {
                                 onChange={e => setDescription(e.target.value)}
                             />
                         </div>
+                    </div>
+                    <div className="create-category">
+                        <label className="new-category">
+                            Create a new category
+                        </label>
+                        <input
+                            type="text"
+                            required
+                            value={newCategory}
+                            onChange={e => setNewCategory(e.target.value)}
+                        />
+                        <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>
                     </div>
                     <div className="create-business-buttons">
                         <Button type="submit" className="create-business" variant="danger">Create a New Business</Button>
