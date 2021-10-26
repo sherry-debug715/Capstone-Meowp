@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './BusinessDetail.css'
 import Button from 'react-bootstrap/Button'
 import EditBusinessModal from '../EditBusinessForm/EditBusinessModal';
-
+import ReviewDisplayCard from '../ReviewDisplayCard';
 
 
 
@@ -15,14 +15,31 @@ const BusinessDetail = () => {
 
     const dispatch = useDispatch();
     const businessesObj = useSelector(state => state?.businesses)
+    const businessDetail = businessesObj?.business
+    const reviews = businessDetail?.review
     const { businessId } = useParams();
     const currentUser = useSelector((state) => state?.session?.user);
-    const reviewsObj = useSelector(state => state?.reviews)
 
+    console.log("===========>", reviews)
 
     useEffect(() => {
         dispatch(businessDetailThunk(businessId));
     }, [dispatch, businessId]);
+
+    const businessComments = reviews?.map(review => (
+
+        <div key={review?.id} className="business-comments-container">
+            <ReviewDisplayCard
+            userName={review?.user?.username}
+            userSrc={review?.user?.photo}
+            userAlt={review?.user?.username[0]}
+            userCity={review?.user?.city}
+            userState={review?.user?.state}
+            reviewContent={review?.content}
+            rating={review?.rating}
+            />
+        </div>
+    ))
 
     return (
         <>
@@ -93,6 +110,9 @@ const BusinessDetail = () => {
             <div className="button-section">
                 <Button className="write-review" variant="danger">White a Review</Button>
                 <Button variant="outline-secondary">Save to Favorite</Button>{' '}
+            </div>
+            <div className="review-section">
+                {businessComments}
             </div>
         </div>
         </>
