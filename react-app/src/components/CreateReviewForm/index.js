@@ -15,7 +15,7 @@ export const CreateReviewForm = ( {businessDetail} ) => {
 
 
     const handleCreateReview = async(e) => {
-        e.preventDefault()
+        // e.preventDefault()
 
         const payload = {
             user_id: currentUser?.id,
@@ -25,9 +25,9 @@ export const CreateReviewForm = ( {businessDetail} ) => {
         }
 
         const createdReview = await dispatch(newReviewThunk(payload))
-        history.push(`/businesses/${businessDetail?.id}`)
         let modal = document.getElementById('modal-background')
         modal.click()
+        history.push(`/businesses/${businessDetail?.id}`)
 
     };
 
