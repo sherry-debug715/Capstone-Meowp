@@ -15,7 +15,7 @@ export const CreateReviewForm = ( {businessDetail} ) => {
 
 
     const handleCreateReview = async(e) => {
-        // e.preventDefault();
+        e.preventDefault()
 
         const payload = {
             user_id: currentUser?.id,
@@ -28,7 +28,6 @@ export const CreateReviewForm = ( {businessDetail} ) => {
         history.push(`/businesses/${businessDetail?.id}`)
         let modal = document.getElementById('modal-background')
         modal.click()
-        // console.log("2222222222222",payload)
 
     };
 
