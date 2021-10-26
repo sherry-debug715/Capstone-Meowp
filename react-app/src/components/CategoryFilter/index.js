@@ -27,6 +27,8 @@ const BusinessOfCategory = () => {
                         src={business?.media_1}
                         alt={business?.description}
                         businessName={business?.title}
+                        reviewNum={(business?.review).length}
+                        businessReview={business?.review[0]?.content}
                     />
                 </NavLink>
             </div>
