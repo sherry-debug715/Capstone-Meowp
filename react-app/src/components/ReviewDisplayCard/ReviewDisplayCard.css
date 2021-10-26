@@ -1,0 +1,25 @@
+.review-card-container {
+    margin: 10px;
+    border-radius: 3px;
+    border: 1px solid #eeeeef;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 180px;
+}
+
+.user-info-container {
+    display: flex;
+}
+
+.user-info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
