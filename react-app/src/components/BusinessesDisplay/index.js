@@ -24,6 +24,7 @@ const BusinessesDisplay = () => {
                         src={business?.media_1}
                         alt={business?.description}
                         businessName={business?.title}
+                        businessReview={business?.review[0]?.content}
                         />
                     </NavLink>
                 </div>
