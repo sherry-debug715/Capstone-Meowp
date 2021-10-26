@@ -15,7 +15,7 @@ export const CreateReviewForm = ( {businessDetail} ) => {
 
 
     const handleCreateReview = async(e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         const payload = {
             user_id: currentUser?.id,
@@ -25,42 +25,44 @@ export const CreateReviewForm = ( {businessDetail} ) => {
         }
 
         const createdReview = await dispatch(newReviewThunk(payload))
+        history.push(`/businesses/${businessDetail?.id}`)
         let modal = document.getElementById('modal-background')
         modal.click()
-        history.push(`/businesses/${businessDetail?.id}`)
-        console.log("2222222222222",payload)
+        // console.log("2222222222222",payload)
 
     };
 
     return (
         <>
             <div className="create-review-form-container">
-                <h1 className="title">{businessDetail?.title}</h1>
-                <div className="create-review-form">
-                    <label className="rating">
-                        Select your rating
-                        <select className="dropdown"
-                            value={rating}
-                            onChange={e => {
-                                setRating(e.target.value)
-                            }}
-                        >
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </label>
-                    <input
-                    className="review-content"
-                    value={content}
-                    onChange={e => setContent(e.target.value)}
-                    />
-                </div>
-                <div className="post-button-container">
-                    <Button variant="danger" size="lg" onClick={handleCreateReview}>Post Review</Button>
-                </div>
+                <form>
+                    <h1 className="title">{businessDetail?.title}</h1>
+                    <div className="create-review-form">
+                        <label className="rating">
+                            Select your rating
+                            <select className="dropdown"
+                                value={rating}
+                                onChange={e => {
+                                    setRating(e.target.value)
+                                }}
+                            >
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </label>
+                        <input
+                        className="review-content"
+                        value={content}
+                        onChange={e => setContent(e.target.value)}
+                        />
+                    </div>
+                    <div className="post-button-container">
+                        <Button type="submit" variant="danger" size="lg" onClick={handleCreateReview}>Post Review</Button>
+                    </div>
+                </form>
             </div>
         </>
     )
