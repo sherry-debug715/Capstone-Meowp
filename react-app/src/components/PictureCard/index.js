@@ -1,8 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Card.css'
 
 
-function Card({ src, alt, businessName, businessReview }) {
+function Card({ src, alt, businessName, businessReview, reviewNum }) {
+
     return (
         <>
             <div className="card-container">
@@ -14,13 +16,8 @@ function Card({ src, alt, businessName, businessReview }) {
                         <div className="business-name-container">
                             <h3 className="business-name">{businessName}</h3>
                         </div>
+                        <NavLink to="#" style={{ textDecoration:'none'}}>{reviewNum} Reviews</NavLink>
                         <div className="business-sample-review">
-                            <div
-                                className="review-icon"
-                                style={{
-                                    backgroundImage:`url(https://toppng.com/uploads/preview/chat-icon-comments-icon-11553508047pnx3f5bvsr.png)`,
-                                }}
-                            ></div>
                             <p>"{businessReview}"</p>
                         </div>
                     </div>
