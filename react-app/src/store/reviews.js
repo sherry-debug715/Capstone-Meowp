@@ -1,6 +1,6 @@
 const GET_REVIEWS = 'reviews/GET_REVIEWS'
 const GET_BUSINESS_REVIEWS = 'reviews/GET_BUSINESS_REVIEWS'
-
+const ADD_REVIEW = 'reviews/ADD_REVIEW'
 
 const getReviewsAction = reviewsObj => {
     return {
@@ -13,6 +13,13 @@ const getReviewsOfBusinessAction = reviewsObj => {
     return {
         type: GET_BUSINESS_REVIEWS,
         payload: reviewsObj
+    }
+}
+
+const addReview = newReviewObj => {
+    return {
+        type: ADD_REVIEW,
+        payload: newReviewObj
     }
 }
 
@@ -36,6 +43,22 @@ export const getReviewsOfBusinessThunk = (id) => async(dispatch) => {
     }
 }
 
+// create a new review
+export const newReviewThunk = newReview => async(dispatch) => {
+    const response = await fetch('/api/reviews/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(newReview)
+    })
+    if(response.ok) {
+        const newReviewObj = await response.json();
+        dispatch(addReview(newReviewObj))
+        return newReviewObj
+    }
+}
+
 
 const initialState = {}
 
@@ -46,6 +69,9 @@ export default function reviewsReducer(state = initialState, action) {
             return action.payload
         case GET_BUSINESS_REVIEWS:
             return action.payload
+        case ADD_REVIEW:
+            newState[action.payload.id] = action.payload
+            return newState
         default:
             return state
     }

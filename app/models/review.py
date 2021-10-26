@@ -33,6 +33,6 @@ class Review(db.Model):
             'media_3': self.media_3,
             'media_4': self.media_4,
             'media_5': self.media_5,
-            # 'business': self.business,
+            # 'business': self.business.to_dict(),
             'user': self.user.to_dict()
         }

@@ -12,7 +12,7 @@ function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, rev
                         <img className="user-profile-img" src={userSrc} alt={userAlt}/>
                     </div>
                     <div className="user-info">
-                        <div>{userName}</div>
+                        <div className="user-info-name">{userName}</div>
                         <div>{userCity} {userState}</div>
                     </div>
                 </div>
