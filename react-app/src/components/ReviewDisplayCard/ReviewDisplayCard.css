@@ -8,13 +8,15 @@
 }
 
 .user-profile-img {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     border-radius: 180px;
 }
 
 .user-info-container {
     display: flex;
+    margin-top: 15px;
+    margin-left: 10px;
 }
 
 .user-info {
@@ -22,4 +24,14 @@
     display: flex;
     flex-direction: column;
 
+}
+
+.user-info-name {
+    font-size: 26px;
+    color: #2B273C;
+    font-weight: 700;
+}
+
+.review-rating, .review-content {
+    margin-left: 10px;
 }

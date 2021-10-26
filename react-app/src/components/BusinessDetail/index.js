@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { Link, useParams,useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { businessDetailThunk } from '../../store/businesses';
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,6 +8,7 @@ import './BusinessDetail.css'
 import Button from 'react-bootstrap/Button'
 import EditBusinessModal from '../EditBusinessForm/EditBusinessModal';
 import ReviewDisplayCard from '../ReviewDisplayCard';
+import CreateReviewModal from '../CreateReviewForm/CreateReviewModal';
 
 
 
@@ -20,7 +21,6 @@ const BusinessDetail = () => {
     const { businessId } = useParams();
     const currentUser = useSelector((state) => state?.session?.user);
 
-    console.log("===========>", reviews)
 
     useEffect(() => {
         dispatch(businessDetailThunk(businessId));
@@ -108,7 +108,7 @@ const BusinessDetail = () => {
                 </div>
             </div>
             <div className="button-section">
-                <Button className="write-review" variant="danger">White a Review</Button>
+                <CreateReviewModal businessDetail={businessDetail} />
                 <Button variant="outline-secondary">Save to Favorite</Button>{' '}
             </div>
             <div className="review-section">
