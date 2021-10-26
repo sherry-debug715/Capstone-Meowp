@@ -50,7 +50,7 @@ const CreateBusinessForm = () => {
     };
 
     const handleCreateBusiness = async(e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
         let createdBusiness = {
             owner_id:currentUser?.id,
@@ -69,9 +69,10 @@ const CreateBusinessForm = () => {
         };
 
         const newBusiness = await dispatch(createBusinessThunk(createdBusiness));
-        console.log("=============>createdBusiness", createdBusiness)
+        // console.log("=============>newBusiness", newBusiness)
+        let modal = document.getElementById('modal-background')
+        modal.click()
         return history.push(`/businesses/${newBusiness?.id}`)
-
         // reset()
     };
 
