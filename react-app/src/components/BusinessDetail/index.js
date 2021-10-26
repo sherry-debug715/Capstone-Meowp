@@ -10,18 +10,19 @@ import EditBusinessModal from '../EditBusinessForm/EditBusinessModal';
 
 
 
+
 const BusinessDetail = () => {
 
     const dispatch = useDispatch();
     const businessesObj = useSelector(state => state?.businesses)
     const { businessId } = useParams();
     const currentUser = useSelector((state) => state?.session?.user);
+    const reviewsObj = useSelector(state => state?.reviews)
+
 
     useEffect(() => {
         dispatch(businessDetailThunk(businessId));
     }, [dispatch, businessId]);
-
-
 
     return (
         <>
