@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 import EditBusinessModal from '../EditBusinessForm/EditBusinessModal';
 import ReviewDisplayCard from '../ReviewDisplayCard';
 import CreateReviewModal from '../CreateReviewForm/CreateReviewModal';
-
+import { editReviewThunk, deleteReviewThunk } from '../../store/reviews';
 
 
 const BusinessDetail = () => {
@@ -21,24 +21,43 @@ const BusinessDetail = () => {
     const { businessId } = useParams();
     const currentUser = useSelector((state) => state?.session?.user);
 
+    const [rating, setRating] = useState();
+    const [content, setContent] = useState("");
 
     useEffect(() => {
         dispatch(businessDetailThunk(businessId));
-    }, [dispatch, businessId]);
+    }, [dispatch, businessId, businessDetail]);
+
+    const handleReviewDelete = e => {
+        e.preventDefault();
+        dispatch(deleteReviewThunk(e.target.value));
+    }
+
 
     const businessComments = reviews?.map(review => (
+        <>
+            <div key={review?.id} className="business-comments-container">
+                <ReviewDisplayCard
+                userName={review?.user?.username}
+                userSrc={review?.user?.photo}
+                userAlt={review?.user?.username[0]}
+                userCity={review?.user?.city}
+                userState={review?.user?.state}
+                reviewContent={review?.content}
+                rating={review?.rating}
+                editDeleteButtons={
+                    <>
+                        <div className="delete-review-button">
+                            <button value={review?.id} onClick={handleReviewDelete}>
+                                Delete
+                            </button>
+                        </div>
+                    </>
+                }
+                />
 
-        <div key={review?.id} className="business-comments-container">
-            <ReviewDisplayCard
-            userName={review?.user?.username}
-            userSrc={review?.user?.photo}
-            userAlt={review?.user?.username[0]}
-            userCity={review?.user?.city}
-            userState={review?.user?.state}
-            reviewContent={review?.content}
-            rating={review?.rating}
-            />
-        </div>
+            </div>
+        </>
     ))
 
     return (
@@ -107,6 +126,7 @@ const BusinessDetail = () => {
                         </Carousel.Caption>
                 </div>
             </div>
+
             <div className="button-section">
                 <CreateReviewModal businessDetail={businessDetail} />
                 <Button variant="outline-secondary">Save to Favorite</Button>{' '}

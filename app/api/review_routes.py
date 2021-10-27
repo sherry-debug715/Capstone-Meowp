@@ -4,6 +4,7 @@ from flask_wtf.csrf import generate_csrf
 from flask_login import current_user, login_required
 from colors import *
 from app.forms.create_review_form import NewReviewForm
+from app.forms.edit_review_form import EditReviewForm
 
 review_routes = Blueprint("reviews", __name__, url_prefix="")
 
@@ -47,5 +48,24 @@ def create_new_review():
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict()
+    else:
+        return form.errors
+
+
+#edit a review
+@review_routes.route('/reviews/edit/<int:id>', methods=['PATCH'])
+@login_required
+def edit_review(id):
+    form = EditReviewForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    data = form.data
+    if form.validate_on_submit():
+        edited_review = Review.query.filter(Review.id == id).first()
+
+        edited_review.rating = data['rating']
+        edited_review.content = data['content']
+
+        db.session.commit()
+        return edited_review.to_dict()
     else:
         return form.errors

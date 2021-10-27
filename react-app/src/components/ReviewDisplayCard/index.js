@@ -1,8 +1,24 @@
-import React from 'react';
+import {React, useEffect, useState} from 'react';
 import './ReviewDisplayCard.css'
 
 
-function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, reviewContent, rating}) {
+function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, reviewContent, editDeleteButtons, rating}) {
+
+    const [showMenu, setShowMenu] = useState(false);
+    const openMenu = () => {
+        if(showMenu) return;
+        setShowMenu(true);
+    };
+    useEffect(() => {
+        if(!showMenu) return;
+        const closeMenu = () => {
+            setShowMenu(false);
+        }
+        document.addEventListener('click', closeMenu);
+        return () => document.removeEventListener("click", closeMenu)
+    }, [showMenu]);
+
+
 
     return (
         <>
@@ -15,6 +31,14 @@ function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, rev
                         <div className="user-info-name">{userName}</div>
                         <div>{userCity} {userState}</div>
                     </div>
+                    <span class="material-icons" onClick={openMenu}>
+                        more_horiz
+                    </span>
+                    {showMenu && (
+                        <>
+                            {editDeleteButtons}
+                        </>
+                    )}
                 </div>
 
                 <div className="review-rating">
@@ -24,8 +48,8 @@ function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, rev
                 <div className="review-content">
                     {reviewContent}
                 </div>
-            </div>
 
+            </div>
         </>
     )
 }
