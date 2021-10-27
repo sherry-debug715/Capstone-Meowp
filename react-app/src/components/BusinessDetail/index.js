@@ -9,8 +9,8 @@ import Button from 'react-bootstrap/Button'
 import EditBusinessModal from '../EditBusinessForm/EditBusinessModal';
 import ReviewDisplayCard from '../ReviewDisplayCard';
 import CreateReviewModal from '../CreateReviewForm/CreateReviewModal';
-import { editReviewThunk, deleteReviewThunk } from '../../store/reviews';
-
+import { deleteReviewThunk } from '../../store/reviews';
+import EditReviewModal from '../EditReviewForm/EditReviewModal';
 
 const BusinessDetail = () => {
 
@@ -47,11 +47,18 @@ const BusinessDetail = () => {
                 rating={review?.rating}
                 editDeleteButtons={
                     <>
-                        <div className="delete-review-button">
-                            <button value={review?.id} onClick={handleReviewDelete}>
-                                Delete
-                            </button>
-                        </div>
+                    {currentUser?.id === review?.user_id && (
+                        <>
+                            <div className="delete-review-button">
+                                <button value={review?.id} onClick={handleReviewDelete}>
+                                    Delete
+                                </button>
+                            </div>
+                            <div className="edit-review-button">
+                                <EditReviewModal />
+                            </div>
+                        </>
+                    )}
                     </>
                 }
                 />
