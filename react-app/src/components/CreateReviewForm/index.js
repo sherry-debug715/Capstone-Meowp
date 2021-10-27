@@ -14,7 +14,7 @@ export const CreateReviewForm = ( {businessDetail} ) => {
     const currentUser = useSelector( state => state.session.user);
     const businessesStore = useSelector(state => state?.businesses);
     const { businessId } = useParams();
-    const [ rating, setRating ] = useState();
+    const [ rating, setRating ] = useState(1);
     const [ content, setContent ] = useState("");
 
     const handleCreateReview = async(e) => {
