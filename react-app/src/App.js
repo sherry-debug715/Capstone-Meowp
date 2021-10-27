@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import BusinessesDisplay from './components/BusinessesDisplay';
 import BusinessDetail from './components/BusinessDetail';
 import BusinessOfCategory from './components/CategoryFilter';
+import HomePage from './components/Home';
 
 
 function App() {
@@ -30,9 +31,13 @@ function App() {
   }
 
   return (
+
     <BrowserRouter>
-      <NavBar />
+      <NavBar loaded={loaded} />
       <Switch>
+        <Route path="/" exact={true}>
+          <HomePage />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -45,9 +50,6 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
         <Route path='/businesses' exact={true} >
           <BusinessesDisplay />
         </Route>
@@ -57,6 +59,9 @@ function App() {
         <Route path='/categories/:categoryId' exact={true} >
           <BusinessOfCategory />
         </Route>
+        <ProtectedRoute path='/' exact={true} >
+          <h1>My Home Page</h1>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
