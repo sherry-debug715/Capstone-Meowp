@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editBusinessThunk, deleteBusinessThunk } from "../../store/businesses";
+import { editBusinessThunk, deleteBusinessThunk, getAllBusinessesThunk } from "../../store/businesses";
 import Button from 'react-bootstrap/Button'
 import { businessDetailThunk } from '../../store/businesses';
 
@@ -66,6 +66,7 @@ function EditBusinessForm( { businessesObj } ) {
     const handleDeleteBusiness = e => {
         // e.preventDefault();
         dispatch(deleteBusinessThunk(e.target.value));
+        dispatch(getAllBusinessesThunk())
         history.push('/businesses')
     }
 

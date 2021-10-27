@@ -11,7 +11,7 @@ export const EditReviewForm = ( {review} ) => {
     const [ content, setContent ] = useState("");
     const businessesStore = useSelector(state => state?.businesses);
 
-    console.log("================>review",review)
+
     const handleEditReviewSubmit = async(e) => {
         e.preventDefault();
         const payload = {

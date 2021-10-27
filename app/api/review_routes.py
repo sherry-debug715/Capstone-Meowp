@@ -56,9 +56,9 @@ def create_new_review():
 @review_routes.route('/reviews/edit/<int:id>', methods=['PATCH'])
 @login_required
 def edit_review(id):
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
     form = EditReviewForm()
-    print("================>", form.data)
+
     form["csrf_token"].data = request.cookies["csrf_token"]
     data = form.data
     if form.validate_on_submit():
