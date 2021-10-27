@@ -59,7 +59,7 @@ const BusinessDetail = () => {
                                 </button>
                             </div>
                             <div className="edit-review-button">
-                                <EditReviewModal />
+                                <EditReviewModal review={review} />
                             </div>
                         </>
                     )}

@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditReviewForm from './EditReviewForm';
 
 
-function EditReviewModal(  ) {
+function EditReviewModal( {review} ) {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
@@ -21,7 +21,7 @@ function EditReviewModal(  ) {
         </div>
         {showModal && (
             <Modal onClose={() =>setShowModal(false)}>
-              <EditReviewForm />
+              <EditReviewForm review={review} />
             </Modal>
           )}
         </>

@@ -1,30 +1,43 @@
 import { editReviewThunk } from "../../store/reviews"
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
+import { businessDetailThunk } from '../../store/businesses';
 
-export const EditReviewForm = () => {
+export const EditReviewForm = ( {review} ) => {
 
     const dispatch = useDispatch();
     const [ rating, setRating ] = useState();
     const [ content, setContent ] = useState("");
+    const businessesStore = useSelector(state => state?.businesses);
 
+    console.log("================>review",review)
     const handleEditReviewSubmit = async(e) => {
         e.preventDefault();
         const payload = {
+            id:review?.id,
             rating,
             content
         };
-
         let editedReview = await dispatch(editReviewThunk(payload))
+
+        // await dispatch(businessDetailThunk(review?.business_id));
         let modal = document.getElementById('modal-background')
         modal.click()
+
     }
+
+    useEffect(() => {
+        if(review) {
+            setRating(review?.rating);
+            setContent(review?.content)
+        }
+    },[review])
 
     return (
         <>
             <div className="edit-review-form-container">
-                <form>
+                <form onSubmit={handleEditReviewSubmit}>
                     <div className="edit-review-form">
                         <label className="edit-rating">
                             Edit your rating
@@ -48,7 +61,16 @@ export const EditReviewForm = () => {
                         />
                     </div>
                     <div className="post-button-container">
-                        <Button type="submit" variant="danger" size="lg" onClick={handleEditReviewSubmit}>Save</Button>
+                        <Button type="submit" variant="danger">Save</Button>
+                        {/* <Button
+                            onClick={() =>{
+                                // e.preventDefault()
+                                let modal = document.getElementById('modal-background')
+                                modal.click()
+                            }}
+                            variant="secondary">
+                                Cancel
+                        </Button>{' '} */}
                     </div>
                 </form>
 
