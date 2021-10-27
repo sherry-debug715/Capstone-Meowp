@@ -21,7 +21,7 @@ export const EditReviewForm = ( {review} ) => {
         };
         let editedReview = await dispatch(editReviewThunk(payload))
 
-        // await dispatch(businessDetailThunk(review?.business_id));
+        dispatch(businessDetailThunk(review?.business_id));
         let modal = document.getElementById('modal-background')
         modal.click()
 
@@ -62,7 +62,7 @@ export const EditReviewForm = ( {review} ) => {
                     </div>
                     <div className="post-button-container">
                         <Button type="submit" variant="danger">Save</Button>
-                        {/* <Button
+                        <Button
                             onClick={() =>{
                                 // e.preventDefault()
                                 let modal = document.getElementById('modal-background')
@@ -70,7 +70,7 @@ export const EditReviewForm = ( {review} ) => {
                             }}
                             variant="secondary">
                                 Cancel
-                        </Button>{' '} */}
+                        </Button>{' '}
                     </div>
                 </form>
 
