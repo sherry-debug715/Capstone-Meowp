@@ -20,7 +20,7 @@ export const EditReviewForm = () => {
         let modal = document.getElementById('modal-background')
         modal.click()
     }
-    console.log("====================>")
+
     return (
         <>
             <div className="edit-review-form-container">

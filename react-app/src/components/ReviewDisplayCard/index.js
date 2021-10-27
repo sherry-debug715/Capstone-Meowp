@@ -6,17 +6,17 @@ function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, rev
 
     const [showMenu, setShowMenu] = useState(false);
     const openMenu = () => {
-        if(showMenu) return;
-        setShowMenu(true);
+        // if(showMenu) return;
+        setShowMenu(state => !state);
     };
-    useEffect(() => {
-        if(!showMenu) return;
-        const closeMenu = () => {
-            setShowMenu(false);
-        }
-        document.addEventListener('click', closeMenu);
-        return () => document.removeEventListener("click", closeMenu)
-    }, [showMenu]);
+    // useEffect(() => {
+    //     if(!showMenu) return;
+    //     const closeMenu = () => {
+    //         setShowMenu(false);
+    //     }
+        // document.addEventListener('click', closeMenu);
+        // return () => document.removeEventListener("click", closeMenu)
+    // }, [showMenu]);
 
 
 
