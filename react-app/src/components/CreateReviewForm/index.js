@@ -2,17 +2,20 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { newReviewThunk } from '../../store/reviews';
+import { businessDetailThunk } from '../../store/businesses';
 import Button from 'react-bootstrap/Button';
+
+
 
 export const CreateReviewForm = ( {businessDetail} ) => {
 
     const dispatch = useDispatch();
     const history = useHistory();
     const currentUser = useSelector( state => state.session.user);
+    const businessesStore = useSelector(state => state?.businesses);
     const { businessId } = useParams();
     const [ rating, setRating ] = useState();
     const [ content, setContent ] = useState("");
-
 
     const handleCreateReview = async(e) => {
         e.preventDefault()
@@ -25,6 +28,7 @@ export const CreateReviewForm = ( {businessDetail} ) => {
         }
 
         const createdReview = await dispatch(newReviewThunk(payload))
+        dispatch(businessDetailThunk(businessId));
         let modal = document.getElementById('modal-background')
         modal.click()
 
