@@ -1,43 +1,33 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
-import { newReviewThunk } from '../../store/reviews';
+import { editReviewThunk } from "../../store/reviews"
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Button from 'react-bootstrap/Button';
 
-export const CreateReviewForm = ( {businessDetail} ) => {
+export const EditReviewForm = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
-    const currentUser = useSelector( state => state.session.user);
-    const { businessId } = useParams();
     const [ rating, setRating ] = useState();
     const [ content, setContent ] = useState("");
 
-
-    const handleCreateReview = async(e) => {
-        e.preventDefault()
-
+    const handleEditReviewSubmit = async(e) => {
+        e.preventDefault();
         const payload = {
-            user_id: currentUser?.id,
-            business_id: businessDetail?.id,
             rating,
             content
-        }
+        };
 
-        const createdReview = await dispatch(newReviewThunk(payload))
+        let editedReview = await dispatch(editReviewThunk(payload))
         let modal = document.getElementById('modal-background')
         modal.click()
-
-    };
+    }
 
     return (
         <>
-            <div className="create-review-form-container">
+            <div className="edit-review-form-container">
                 <form>
-                    <h1 className="title">{businessDetail?.title}</h1>
-                    <div className="create-review-form">
-                        <label className="rating">
-                            Select your rating
+                    <div className="edit-review-form">
+                        <label className="edit-rating">
+                            Edit your rating
                             <select className="dropdown"
                                 value={rating}
                                 onChange={e => {
@@ -58,14 +48,13 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                         />
                     </div>
                     <div className="post-button-container">
-                        <Button type="submit" variant="danger" size="lg" onClick={handleCreateReview}>Post Review</Button>
+                        <Button type="submit" variant="danger" size="lg" onClick={handleEditReviewSubmit}>Save</Button>
                     </div>
                 </form>
+
             </div>
         </>
     )
-
-
 }
 
-export default CreateReviewForm
+export default EditReviewForm
