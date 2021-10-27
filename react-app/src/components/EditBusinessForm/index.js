@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editBusinessThunk, deleteBusinessThunk } from "../../store/businesses";
 import Button from 'react-bootstrap/Button'
+import { businessDetailThunk } from '../../store/businesses';
 
 
 function EditBusinessForm( { businessesObj } ) {
@@ -10,6 +11,7 @@ function EditBusinessForm( { businessesObj } ) {
     const dispatch = useDispatch();
     const history = useHistory();
     const currentUser = useSelector( state => state.session?.user);
+    const businessesStore = useSelector(state => state?.businesses);
 
     const [title, setTitle] = useState("");
     const [address, setAddress] = useState("");
@@ -22,6 +24,7 @@ function EditBusinessForm( { businessesObj } ) {
     const [media_4, setMedia4] = useState("")
     const [media_5, setMedia5] = useState("")
     const [description, setDescription] = useState("")
+    const { businessId } = useParams();
 
     useEffect(() => {
         if(businessesObj) {
@@ -39,8 +42,10 @@ function EditBusinessForm( { businessesObj } ) {
         }
     }, [businessesObj])
 
-    console.log("==========> this is business obj",businessesObj)
+
     const handleEditBusinessSubmit = async(e) => {
+        e.preventDefault();
+
         const payload = {
             id:businessesObj?.business?.id,
             title,
@@ -53,8 +58,9 @@ function EditBusinessForm( { businessesObj } ) {
         };
 
         let editedBusiness = await dispatch(editBusinessThunk(payload))
-        return history.push(`/businesses/${editedBusiness?.id}`);
-
+        dispatch(businessDetailThunk(businessId));
+        let modal = document.getElementById('modal-background')
+        modal.click()
     };
 
     const handleDeleteBusiness = e => {

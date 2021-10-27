@@ -12,6 +12,8 @@ import CreateReviewModal from '../CreateReviewForm/CreateReviewModal';
 import { deleteReviewThunk } from '../../store/reviews';
 import EditReviewModal from '../EditReviewForm/EditReviewModal';
 
+
+
 const BusinessDetail = () => {
 
     const dispatch = useDispatch();
@@ -20,17 +22,19 @@ const BusinessDetail = () => {
     const reviews = businessDetail?.review
     const { businessId } = useParams();
     const currentUser = useSelector((state) => state?.session?.user);
+    const businessReviews = useSelector( state => state?.reviews)
 
     const [rating, setRating] = useState();
     const [content, setContent] = useState("");
 
     useEffect(() => {
         dispatch(businessDetailThunk(businessId));
-    }, [dispatch, businessId, businessDetail]);
+    }, [dispatch, businessId]);
 
     const handleReviewDelete = e => {
         e.preventDefault();
         dispatch(deleteReviewThunk(e.target.value));
+        dispatch(businessDetailThunk(businessId));
     }
 
 
@@ -136,7 +140,6 @@ const BusinessDetail = () => {
 
             <div className="button-section">
                 <CreateReviewModal businessDetail={businessDetail} />
-                <Button variant="outline-secondary">Save to Favorite</Button>{' '}
             </div>
             <div className="review-section">
                 {businessComments}
