@@ -80,7 +80,7 @@ export const newReviewThunk = newReview => async(dispatch) => {
 
 // edit review
 export const editReviewThunk = review => async(dispatch) => {
-    const response = await fetch(`api/reviews/edit/${review.id}`, {
+    const response = await fetch(`/api/reviews/edit/${review.id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type':'application/json'
