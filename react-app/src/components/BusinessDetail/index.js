@@ -86,38 +86,46 @@ const BusinessDetail = () => {
                             alt={businessesObj?.business?.description}
                             />
                         </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="carousels"
-                            // className="d-block w-100"
-                            src={businessesObj?.business?.media_2}
-                            alt={businessesObj?.business?.description}
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="carousels"
-                            // className="d-block w-100"
-                            src={businessesObj?.business?.media_3}
-                            alt={businessesObj?.business?.description}
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            // className="d-block w-100"
-                            className="carousels"
-                            src={businessesObj?.business?.media_4}
-                            alt={businessesObj?.business?.description}
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            // className="d-block w-100"
-                            className="carousels"
-                            src={businessesObj?.business?.media_5}
-                            alt={businessesObj?.business?.description}
-                            />
-                        </Carousel.Item>
+                        {businessesObj?.business?.media_2 && (
+                            <Carousel.Item>
+                                <img
+                                className="carousels"
+                                // className="d-block w-100"
+                                src={businessesObj?.business?.media_2}
+                                alt={businessesObj?.business?.description}
+                                />
+                            </Carousel.Item>
+                        )}
+                        {businessesObj?.business?.media_3 && (
+                            <Carousel.Item>
+                                <img
+                                className="carousels"
+                                // className="d-block w-100"
+                                src={businessesObj?.business?.media_3}
+                                alt={businessesObj?.business?.description}
+                                />
+                            </Carousel.Item>
+                        )}
+                        {businessesObj?.business?.media_4 && (
+                            <Carousel.Item>
+                                <img
+                                // className="d-block w-100"
+                                className="carousels"
+                                src={businessesObj?.business?.media_4}
+                                alt={businessesObj?.business?.description}
+                                />
+                            </Carousel.Item>
+                        )}
+                        {businessesObj?.business?.media_5 && (
+                            <Carousel.Item>
+                                <img
+                                // className="d-block w-100"
+                                className="carousels"
+                                src={businessesObj?.business?.media_5}
+                                alt={businessesObj?.business?.description}
+                                />
+                            </Carousel.Item>
+                        )}
                     </Carousel>
                         <Carousel.Caption>
                             <div className="carousel-content">
