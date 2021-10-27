@@ -32,7 +32,17 @@ function ProfileIcon() {
                 face
             </span>
             {showMenu && (
-                <LogoutButton />
+                <ul id="profile-drop-down">
+                    <li id="user-name">
+                        {sessionUser?.username}
+                    </li>
+                    <li>
+                        {sessionUser?.city}, {sessionUser?.state}
+                    </li>
+                    <li>
+                        <LogoutButton />
+                    </li>
+                </ul>
             )}
             </div>
         </>

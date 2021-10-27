@@ -21,7 +21,14 @@ const NavBar = ( { loaded } ) => {
 
   let sessionAuth;
   if (sessionUser) {
-    sessionAuth = <ProfileIcon user={sessionUser} />
+    sessionAuth = (
+      <div id="profile-icon-create-business">
+        <ProfileIcon user={sessionUser} />
+        <div className="create-business-button">
+              <CreateBusinessModal />
+        </div>
+      </div>
+    );
   } else {
     sessionAuth = (
       <div id="login-signup-container">
@@ -53,27 +60,11 @@ const NavBar = ( { loaded } ) => {
         <div className="navbar-container">
           <ul>
             <li>
-              <NavLink  style={{ textDecoration:'none'}} to='/businesses' exact={true} activeClassName='active'>
+              <NavLink  style={{ textDecoration:'none'}} to='/' exact={true} activeClassName='active'>
                 Home
               </NavLink>
             </li>
-            {/* <li>
-              <NavLink  style={{ textDecoration:'none'}} to='/login' exact={true} activeClassName='active'>
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink  style={{ textDecoration:'none'}} to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <LogoutButton />
-            </li> */}
             {loaded && sessionAuth}
-            <div className="create-business-button">
-              <CreateBusinessModal />
-            </div>
           </ul>
         </div>
         <div className="navbar-container">
