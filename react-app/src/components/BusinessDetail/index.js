@@ -10,7 +10,7 @@ import EditBusinessModal from '../EditBusinessForm/EditBusinessModal';
 import ReviewDisplayCard from '../ReviewDisplayCard';
 import CreateReviewModal from '../CreateReviewForm/CreateReviewModal';
 import { deleteReviewThunk } from '../../store/reviews';
-import EditReviewModal from '../EditReviewForm/EditReviewModal';
+import EditReviewModal from '../EditReviewForm';
 
 
 
@@ -123,9 +123,11 @@ const BusinessDetail = () => {
                             <div className="carousel-content">
                                 <div className="contents">
                                     <h1 className="business-name-businessDetail">{businessesObj?.business?.title}</h1>
-                                    <div className="edit-business-button-container">
-                                        <EditBusinessModal businessesObj={businessesObj} />
-                                    </div>
+                                    {currentUser?.id === businessDetail?.owner_id && (
+                                        <div className="edit-business-button-container">
+                                            <EditBusinessModal businessesObj={businessesObj} />
+                                        </div>
+                                    )}
                                     <div className="review-amount">
                                         {businessesObj?.business?.review?.length} reviews
                                     </div>
