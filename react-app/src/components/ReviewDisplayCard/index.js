@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react';
 import './ReviewDisplayCard.css'
 
 
-function ReviewDisplayCard({userName, userInitial, userSrc, userAlt, userCity, userState, reviewContent, editDeleteButtons, rating}) {
+function ReviewDisplayCard({userName, currentUser, userInitial, userSrc, userAlt, userCity, userState, reviewContent, editDeleteButtons, rating}) {
 
     const [showMenu, setShowMenu] = useState(false);
     const openMenu = () => {
@@ -39,12 +39,16 @@ function ReviewDisplayCard({userName, userInitial, userSrc, userAlt, userCity, u
                             <div>{userCity} {userState}</div>
                         </div>
                     </div>
-                    <span class="material-icons" onClick={openMenu}>
-                        more_horiz
-                    </span>
-                    {showMenu && (
+                    {currentUser && (
                         <>
-                            {editDeleteButtons}
+                        <span class="material-icons" onClick={openMenu}>
+                            more_horiz
+                        </span>
+                        {showMenu && (
+                            <>
+                                {editDeleteButtons}
+                            </>
+                        )}
                         </>
                     )}
                 </div>

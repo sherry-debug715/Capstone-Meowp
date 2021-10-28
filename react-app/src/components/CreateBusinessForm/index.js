@@ -125,7 +125,7 @@ const CreateBusinessForm = () => {
         };
 
         const newBusiness = await dispatch(createBusinessThunk(createdBusiness));
-        // console.log("=============>newBusiness", newBusiness)
+
         let modal = document.getElementById('modal-background')
         modal.click()
         return history.push(`/businesses/${newBusiness?.id}`)
