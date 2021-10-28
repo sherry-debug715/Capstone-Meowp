@@ -84,6 +84,11 @@ const CreateBusinessForm = () => {
             validationErrors["zip_code"] = "Please provide a valid zip code for your business location. A valid zip code must be less than 6 numbers"
 
         }
+
+        if(newCategory.length > 20) {
+            validationErrors["newCategory"] = "Category content is limited to 20 characters"
+        }
+
         return validationErrors;
     }
 
@@ -134,6 +139,10 @@ const CreateBusinessForm = () => {
 
     const handleAddNewCategory = async(e) => {
         e.preventDefault();
+
+        const errors = validate();
+        if(Object.keys(errors).length > 0) return setValidationErrors(errors);
+
         const payload = {
             name: newCategory
         };
@@ -361,6 +370,11 @@ const CreateBusinessForm = () => {
                             value={newCategory}
                             onChange={e => setNewCategory(e.target.value)}
                         />
+                        { validationErrors.newCategory && (
+                            <div className="error-handling">
+                                { validationErrors.newCategory}
+                            </div>
+                        )}
                         <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>
                     </div>
             </section>
