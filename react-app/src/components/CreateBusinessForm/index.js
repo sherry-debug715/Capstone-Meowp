@@ -35,6 +35,23 @@ const CreateBusinessForm = () => {
     // state for add category
     const [newCategory, setNewCategory] = useState("")
     const [validationErrors, setValidationErrors] = useState({});
+    const [categoryErrors, setCategoryErrors] = useState({});
+
+    const categoryValidate = () => {
+        const categoryErrors = {};
+
+        if(newCategory.length > 20) {
+            categoryErrors["newCategory"] = "Category content is limited to 20 characters"
+        }
+
+        categoriesArray.forEach(category => {
+            if((category?.name).toLowerCase() === newCategory.toLowerCase()) {
+                return categoryErrors["newCategory"] = "category already exists"
+            }
+        })
+
+        return categoryErrors
+    }
 
     const validate = () => {
         const validationErrors = {};
@@ -83,10 +100,6 @@ const CreateBusinessForm = () => {
         if(!Number(zip_code) || zip_code.length > 5) {
             validationErrors["zip_code"] = "Please provide a valid zip code for your business location. A valid zip code must be less than 6 numbers"
 
-        }
-
-        if(newCategory.length > 20) {
-            validationErrors["newCategory"] = "Category content is limited to 20 characters"
         }
 
         return validationErrors;
@@ -139,9 +152,8 @@ const CreateBusinessForm = () => {
 
     const handleAddNewCategory = async(e) => {
         e.preventDefault();
-
-        const errors = validate();
-        if(Object.keys(errors).length > 0) return setValidationErrors(errors);
+        const errors = categoryValidate()
+        if(Object.keys(errors).length > 0) return setCategoryErrors(errors);
 
         const payload = {
             name: newCategory
@@ -360,6 +372,7 @@ const CreateBusinessForm = () => {
                         </Button>{' '}
                     </div>
                 </form>
+
                 <div className="create-category">
                         <label className="new-category">
                             Create a new category
@@ -370,13 +383,14 @@ const CreateBusinessForm = () => {
                             value={newCategory}
                             onChange={e => setNewCategory(e.target.value)}
                         />
-                        { validationErrors.newCategory && (
+                        { categoryErrors.newCategory && (
                             <div className="error-handling">
-                                { validationErrors.newCategory}
+                                { categoryErrors.newCategory}
                             </div>
                         )}
                         <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>
                     </div>
+
             </section>
         </>
     )
