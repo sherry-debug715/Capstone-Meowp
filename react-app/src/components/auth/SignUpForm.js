@@ -9,11 +9,41 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [validationErrors, setValidationErrors] = useState({});
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const validate = () => {
+    const validationErrors = {};
+
+    if(typeof username !== "undefined") {
+      const re = /^\S*$/;
+      if(username.length < 6 || username > 40 || !re.test(username)) {
+        validationErrors["username"] = "Please enter a valid username, username length must be greater than 6 and less than 40 characters"
+      }
+    }
+
+    if(!password || password.length > 20) {
+      validationErrors["password"] = "Please enter a valid password, password length must be less than 20 characters"
+    }
+
+    if(!repeatPassword || repeatPassword !== password) {
+      validationErrors["repeatPassword"] = "Password don't match, please enter matching password"
+    }
+
+    return validationErrors;
+
+  }
+
+
+
   const onSignUp = async (e) => {
     e.preventDefault();
+    const errors = validate();
+
+    if(Object.keys(errors).length > 0) return setValidationErrors(errors);
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -45,11 +75,6 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
         <label>User Name</label>
         <input
           type='text'
@@ -57,11 +82,16 @@ const SignUpForm = () => {
           onChange={updateUsername}
           value={username}
         ></input>
+        {validationErrors.username && (
+          <div className="error-handling">
+            {validationErrors.username}
+          </div>
+        )}
       </div>
       <div>
         <label>Email</label>
         <input
-          type='text'
+          type='email'
           name='email'
           onChange={updateEmail}
           value={email}
@@ -75,6 +105,11 @@ const SignUpForm = () => {
           onChange={updatePassword}
           value={password}
         ></input>
+        { validationErrors.password && (
+          <div className="error-handling">
+             {validationErrors.password}
+          </div>
+        )}
       </div>
       <div>
         <label>Repeat Password</label>
@@ -85,6 +120,11 @@ const SignUpForm = () => {
           value={repeatPassword}
           required={true}
         ></input>
+        {validationErrors.repeatPassword && (
+           <div className="error-handling">
+           {validationErrors.repeatPassword}
+        </div>
+        )}
       </div>
       <button type='submit'>Sign Up</button>
     </form>
