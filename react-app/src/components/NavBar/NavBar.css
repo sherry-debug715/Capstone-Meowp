@@ -1,0 +1,42 @@
+@import url('http://fonts.cdnfonts.com/css/open-sans');
+body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow-x: hidden;}
+
+#navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 20px;
+}
+
+
+#nav-var-container {
+    position: relative;
+    height: 200px;
+}
+
+.meowp-logo {
+    max-height: 65px;
+    width: auto;
+    margin-left: 5px;
+}
+
+#profile-button {
+    max-height: 40px;
+    width:auto;
+}
+
+#application-brand {
+    font-family: 'SC Gum Kids', sans-serif;
+    color: #dc3545;
+    font-size: 30px;
+}
+
+#login-signup-container {
+
+    display: flex;
+    flex-direction: row;
+}
+.login-btn {
+    margin-right: 10px;
+}
