@@ -19,12 +19,51 @@ function EditBusinessForm( { businessesObj } ) {
     const [state, setState] = useState("");
     const [zip_code, setZipCode] = useState("")
     const [media_1, setMedia1] = useState("")
-    const [media_2, setMedia2] = useState("")
-    const [media_3, setMedia3] = useState("")
-    const [media_4, setMedia4] = useState("")
-    const [media_5, setMedia5] = useState("")
+    // const [media_2, setMedia2] = useState("")
+    // const [media_3, setMedia3] = useState("")
+    // const [media_4, setMedia4] = useState("")
+    // const [media_5, setMedia5] = useState("")
     const [description, setDescription] = useState("")
     const { businessId } = useParams();
+    const [validationErrors, setValidationErrors] = useState({});
+
+    const validate = () => {
+        const validationErrors = {};
+
+        if(typeof title === "undefined") {
+            const re = /^\S*$/;
+            if(title.length > 50 || !re.test(title)) {
+                validationErrors["title"] = "Business name must be less than 50 characters"
+            }
+        }
+
+        if(description.length > 200) {
+            let descriptionLength = description.length
+            validationErrors["description"] = `Content limited to 200 characters, you have exceeded the limit by ${200-descriptionLength} characters.`
+        }
+
+        if(!media_1.endsWith("jpg") && !media_1.endsWith("png")) {
+            validationErrors["media_1"] = `Please provide a valid media url address, a valid media url must ends with "jpg" or "png"`
+        }
+
+        if(!address.length || address.length > 35) {
+            validationErrors["address"] = "Address column can't be empty and can't exceeds 35 characters"
+        }
+
+        if(city.length > 20) {
+            validationErrors["city"] ="city name can't exceeds 20 characters"
+        }
+
+        if(state.length > 10) {
+            validationErrors["state"] ="state name can't exceeds 10 characters"
+        }
+
+        if(!Number(zip_code) || zip_code.length > 5) {
+            validationErrors["zip_code"] = "Please provide a valid zip code for your business location. A valid zip code must be less than 6 numbers"
+
+        }
+        return validationErrors;
+    }
 
     useEffect(() => {
         if(businessesObj) {
@@ -34,10 +73,10 @@ function EditBusinessForm( { businessesObj } ) {
             setState(businessesObj?.business?.state);
             setZipCode(businessesObj?.business?.zip_code);
             setMedia1(businessesObj?.business?.media_1);
-            setMedia2(businessesObj?.business?.media_2);
-            setMedia3(businessesObj?.business?.media_3);
-            setMedia4(businessesObj?.business?.media_4);
-            setMedia5(businessesObj?.business?.media_5);
+            // setMedia2(businessesObj?.business?.media_2);
+            // setMedia3(businessesObj?.business?.media_3);
+            // setMedia4(businessesObj?.business?.media_4);
+            // setMedia5(businessesObj?.business?.media_5);
             setDescription(businessesObj?.business?.description);
         }
     }, [businessesObj])
@@ -45,6 +84,9 @@ function EditBusinessForm( { businessesObj } ) {
 
     const handleEditBusinessSubmit = async(e) => {
         e.preventDefault();
+
+        const errors = validate();
+        if(Object.keys(errors).length > 0) return setValidationErrors(errors);
 
         const payload = {
             id:businessesObj?.business?.id,
@@ -90,10 +132,15 @@ function EditBusinessForm( { businessesObj } ) {
                             value={title}
                             onChange={e => setTitle(e.target.value)}
                         />
+                        {validationErrors.title && (
+                            <div className="error-handling">
+                                {validationErrors.title}
+                            </div>
+                        )}
                     </div>
                     <div className="form-content">
                         <label className="business-address">
-                            Address 1
+                            Address
                         </label>
                         <input
                             type="text"
@@ -101,6 +148,11 @@ function EditBusinessForm( { businessesObj } ) {
                             value={address}
                             onChange={e => setAddress(e.target.value)}
                         />
+                        { validationErrors.address && (
+                            <div className="error-handling">
+                                { validationErrors.address}
+                            </div>
+                        )}
                     </div>
                     <div className="form-content">
                         <label className="business-city">
@@ -112,6 +164,11 @@ function EditBusinessForm( { businessesObj } ) {
                             value={city}
                             onChange={e => setCity(e.target.value)}
                         />
+                        { validationErrors.city && (
+                            <div className="error-handling">
+                                { validationErrors.city}
+                            </div>
+                        )}
                     </div>
                     <div className="form-content">
                         <label className="business-zip">
@@ -123,6 +180,11 @@ function EditBusinessForm( { businessesObj } ) {
                             value={zip_code}
                             onChange={e => setZipCode(e.target.value)}
                         />
+                        { validationErrors.zip_code && (
+                            <div className="error-handling">
+                                { validationErrors.zip_code}
+                            </div>
+                        )}
                     </div>
                     <div className="form-content">
                         <label className="business-image">
@@ -134,6 +196,11 @@ function EditBusinessForm( { businessesObj } ) {
                             value={media_1}
                             onChange={e => setMedia1(e.target.value)}
                         />
+                        {validationErrors.media_1 && (
+                            <div className="error-handling">
+                                {validationErrors.media_1}
+                            </div>
+                        )}
                     </div>
                     <div className="form-content">
                         <label className="description">
@@ -145,6 +212,11 @@ function EditBusinessForm( { businessesObj } ) {
                             value={description}
                             onChange={e => setDescription(e.target.value)}
                         />
+                        { validationErrors.description && (
+                            <div className="error-handling">
+                                { validationErrors.description}
+                            </div>
+                        )}
                     </div>
                     <div className="edit-business-buttons">
                         <Button type="submit" className="save-business-edit" variant="danger">Submit Changes</Button>
