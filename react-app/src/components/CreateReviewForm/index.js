@@ -79,7 +79,7 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                         />
                         {reviewError.content && (
                         <div className="review-error-handling">
-                            {reviewError.content}
+                            <p>{reviewError.content}</p>
                         </div>
                         )}
                     </div>
