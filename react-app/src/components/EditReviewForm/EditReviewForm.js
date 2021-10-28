@@ -10,10 +10,28 @@ export const EditReviewForm = ( {review} ) => {
     const [ rating, setRating ] = useState();
     const [ content, setContent ] = useState("");
     const businessesStore = useSelector(state => state?.businesses);
+    const [reviewError, setReviewError] = useState({})
 
+    const validateReview = () => {
+        const reviewError = {};
+
+        let contentLength = content.length
+
+        if(content.length > 200) {
+            reviewError["content"] = `You have exceeded the content length by ${contentLength-200} characters`
+        } else if(!content) {
+            reviewError["content"] = "Review content can't be empty"
+        }
+
+        return reviewError;
+    }
 
     const handleEditReviewSubmit = async(e) => {
         e.preventDefault();
+
+        const errors = validateReview();
+        if(Object.keys(errors).length > 0) return setReviewError(errors)
+
         const payload = {
             id:review?.id,
             rating,
@@ -59,6 +77,11 @@ export const EditReviewForm = ( {review} ) => {
                         value={content}
                         onChange={e => setContent(e.target.value)}
                         />
+                        {reviewError.content && (
+                            <div className="review-error-handling">
+                                <p>{reviewError.content}</p>
+                            </div>
+                        )}
                     </div>
                     <div className="post-button-container">
                         <Button type="submit" variant="danger">Save</Button>
