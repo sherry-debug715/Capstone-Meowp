@@ -27,9 +27,12 @@ const BusinessDetail = () => {
     const [rating, setRating] = useState();
     const [content, setContent] = useState("");
 
+
+
     useEffect(() => {
         dispatch(businessDetailThunk(businessId));
     }, [dispatch, businessId]);
+
 
     const handleReviewDelete = e => {
         e.preventDefault();

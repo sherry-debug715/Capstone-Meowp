@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, NavLink } from 'react-router-dom';
 import { newReviewThunk } from '../../store/reviews';
 import { businessDetailThunk } from '../../store/businesses';
 import Button from 'react-bootstrap/Button';
@@ -16,9 +16,22 @@ export const CreateReviewForm = ( {businessDetail} ) => {
     const { businessId } = useParams();
     const [ rating, setRating ] = useState(1);
     const [ content, setContent ] = useState("");
+    const [reviewError, setReviewError] = useState({})
+
+    const validateReview = () => {
+        const reviewError = {};
+
+        if(!currentUser) {
+            reviewError['error'] = "Please log in first to be eligible to write reviews"
+        }
+
+        return reviewError;
+    }
 
     const handleCreateReview = async(e) => {
         e.preventDefault()
+        const errors = validateReview();
+        if(Object.keys(errors).length > 0) return setReviewError(errors)
 
         const payload = {
             user_id: currentUser?.id,
@@ -61,6 +74,19 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                         onChange={e => setContent(e.target.value)}
                         />
                     </div>
+                    {reviewError.error && (
+                        <>
+                        <div className="review-error-handling">
+                            {reviewError.error}
+                        </div>
+                        <div className="loginSignupLink">
+                            Already have an account? <NavLink to="/login">Log In </NavLink>
+                        </div>
+                        <div className="loginSignupLink">
+                            Become a member? <NavLink to="/sign-up">Sign up</NavLink>
+                        </div>
+                        </>
+                    )}
                     <div className="post-button-container">
                         <Button type="submit" variant="danger" size="lg" onClick={handleCreateReview}>Post Review</Button>
                     </div>

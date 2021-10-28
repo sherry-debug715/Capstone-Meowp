@@ -24,6 +24,7 @@ def get_reviews(businessId):
 
 #delete a review of a business
 @review_routes.route('/reviews/delete/<int:id>', methods=['DELETE'])
+@login_required
 def delete_review(id):
     deleted_review = Review.query.filter(Review.id == id).first()
     db.session.delete(deleted_review)
