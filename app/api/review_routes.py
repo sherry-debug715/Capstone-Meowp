@@ -5,6 +5,7 @@ from flask_login import current_user, login_required
 from colors import *
 from app.forms.create_review_form import NewReviewForm
 from app.forms.edit_review_form import EditReviewForm
+from app.api.auth_routes import validation_errors_to_error_messages
 
 review_routes = Blueprint("reviews", __name__, url_prefix="")
 
@@ -49,7 +50,8 @@ def create_new_review():
         db.session.commit()
         return new_review.to_dict()
     else:
-        return form.errors
+        return { 'errors': validation_errors_to_error_messages(form.errors)}, 400
+
 
 
 #edit a review
@@ -70,4 +72,4 @@ def edit_review(id):
         db.session.commit()
         return edited_review.to_dict()
     else:
-        return form.errors
+        return { 'errors': validation_errors_to_error_messages(form.errors)}, 400

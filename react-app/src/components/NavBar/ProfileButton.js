@@ -36,9 +36,11 @@ function ProfileIcon() {
                     <li id="user-name">
                         {sessionUser?.username}
                     </li>
-                    <li>
-                        {sessionUser?.city}, {sessionUser?.state}
-                    </li>
+                    {sessionUser?.city &&(
+                        <li>
+                            {sessionUser?.city}, {sessionUser?.state}
+                        </li>
+                    )}
                     <li>
                         <LogoutButton />
                     </li>

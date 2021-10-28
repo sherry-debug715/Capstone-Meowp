@@ -5,9 +5,8 @@ from flask_wtf.csrf import generate_csrf
 from app.forms.create_business_form import BusinessForm
 from app.forms.edit_business_form import EditBusinessForm
 from flask_login import current_user, login_required
-# from app.s3aws_upload import (
-#     upload_file_to_s3, allowed_file, get_unique_filename
-# )
+from app.api.auth_routes import validation_errors_to_error_messages
+
 
 
 business_routes = Blueprint("businesses", __name__, url_prefix="/")
@@ -62,7 +61,7 @@ def create_business():
         db.session.commit()
         return new_business.to_dict()
     else:
-        return create_business_form.errors
+        return { 'errors': validation_errors_to_error_messages(create_business_form.errors)}, 400
 
 #edit business route
 @business_routes.route('/businesses/edit/<int:id>', methods=['PATCH'])
@@ -85,4 +84,4 @@ def edit_business(id):
         return editedBusiness.to_dict()
 
     else:
-        return form.errors
+        return { 'errors': validation_errors_to_error_messages(form.errors)}, 400

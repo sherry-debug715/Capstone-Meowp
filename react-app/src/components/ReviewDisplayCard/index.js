@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react';
 import './ReviewDisplayCard.css'
 
 
-function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, reviewContent, editDeleteButtons, rating}) {
+function ReviewDisplayCard({userName, userInitial, userSrc, userAlt, userCity, userState, reviewContent, editDeleteButtons, rating}) {
 
     const [showMenu, setShowMenu] = useState(false);
     const openMenu = () => {
@@ -24,12 +24,20 @@ function ReviewDisplayCard({userName, userSrc, userAlt, userCity, userState, rev
         <>
             <div className="review-card-container">
                 <div className="user-info-container">
-                    <div className="user-profile-img-container">
-                        <img className="user-profile-img" src={userSrc} alt={userAlt}/>
-                    </div>
-                    <div className="user-info">
-                        <div className="user-info-name">{userName}</div>
-                        <div>{userCity} {userState}</div>
+                    <div id="user-name-display">
+                        <div className="user-profile-img-container">
+                            {userSrc ? (
+                            <img className="user-profile-img" src={userSrc} alt={userAlt}/>
+                            ):(
+                                <div id="user-profile-inital">
+                                    {userInitial}
+                                </div>
+                            )}
+                        </div>
+                        <div className="user-info">
+                            <div className="user-info-name">{userName}</div>
+                            <div>{userCity} {userState}</div>
+                        </div>
                     </div>
                     <span class="material-icons" onClick={openMenu}>
                         more_horiz

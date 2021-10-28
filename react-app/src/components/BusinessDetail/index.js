@@ -45,6 +45,7 @@ const BusinessDetail = () => {
                 userName={review?.user?.username}
                 userSrc={review?.user?.photo}
                 userAlt={review?.user?.username[0]}
+                userInitial={review?.user?.username[0]}
                 userCity={review?.user?.city}
                 userState={review?.user?.state}
                 reviewContent={review?.content}
@@ -74,7 +75,11 @@ const BusinessDetail = () => {
     return (
         <>
         <div className="page-container">
-            <Link to='/businesses'>back</Link>
+            <Link to='/businesses'>
+                <span class="material-icons">
+                    keyboard_backspace
+                </span>
+            </Link>
             <div className="header-container">
                 <div className="carousel-container">
                     <Carousel>
