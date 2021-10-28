@@ -19,8 +19,8 @@ const SignUpForm = () => {
 
     if(typeof username !== "undefined") {
       const re = /^\S*$/;
-      if(username.length < 6 || username > 40 || !re.test(username)) {
-        validationErrors["username"] = "Please enter a valid username, username length must be greater than 6 and less than 40 characters"
+      if(username.length < 4 || username > 25 || !re.test(username)) {
+        validationErrors["username"] = "Please enter a valid username, username length must be greater than 4 and less than 25 characters"
       }
     }
 
