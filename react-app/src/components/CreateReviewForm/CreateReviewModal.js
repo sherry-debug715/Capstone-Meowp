@@ -14,7 +14,7 @@ function CreateReviewModal( {businessDetail} ) {
             variant="danger"
             onClick={() => setShowModal(true)}
             >
-                White a Review
+                Write a Review
             </Button>
         </div>
          {showModal && (
