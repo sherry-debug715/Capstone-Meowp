@@ -24,6 +24,10 @@ export const CreateReviewForm = ( {businessDetail} ) => {
         if(!currentUser) {
             reviewError['error'] = "Please log in first to be eligible to write reviews"
         }
+        let contentLength = content.length
+        if(content.length > 200) {
+            reviewError["content"] = `You have exceeded the content length by ${contentLength-200} characters`
+        }
 
         return reviewError;
     }
@@ -73,6 +77,11 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                         value={content}
                         onChange={e => setContent(e.target.value)}
                         />
+                        {reviewError.content && (
+                        <div className="review-error-handling">
+                            {reviewError.content}
+                        </div>
+                        )}
                     </div>
                     {reviewError.error && (
                         <>
