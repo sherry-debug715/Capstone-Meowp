@@ -160,11 +160,11 @@ const CreateBusinessForm = () => {
                                 value={title}
                                 onChange={e => setTitle(e.target.value)}
                             />
-                                    {validationErrors.title && (
-                                        <div className="error-handling">
-                                            {validationErrors.title}
-                                        </div>
-                                    )}
+                            {validationErrors.title && (
+                                <div className="error-handling">
+                                    {validationErrors.title}
+                                </div>
+                            )}
                         </div>
                         <div className="form-content">
                             <label className="business-name">
