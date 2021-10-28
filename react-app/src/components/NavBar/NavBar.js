@@ -5,7 +5,8 @@ import { getAllCategoriesThunk } from '../../store/categories';
 import LogoutButton from '../auth/LogoutButton';
 import CreateBusinessModal from '../CreateBusinessForm/CreateBusinessModal';
 import ProfileIcon from './ProfileButton';
-
+import Button from 'react-bootstrap/Button';
+import './NavBar.css'
 
 const NavBar = ( { loaded } ) => {
 
@@ -32,41 +33,47 @@ const NavBar = ( { loaded } ) => {
   } else {
     sessionAuth = (
       <div id="login-signup-container">
-        <div id="login-signup-form">
-          <NavLink
-            style={{ textDecoration:'none'}}
-            to='/login'
-            exact={true}
-            activeClassName='active'
-          >
-            Log In
-          </NavLink>
-          <NavLink
-            style={{ textDecoration:'none'}}
-            to='/sign-up'
-            exact={true}
-            activeClassName='active'
-          >
-            Sign Up
-          </NavLink>
-        </div>
+          <div className="login-btn">
+            <NavLink
+              style={{ textDecoration:'none'}}
+              to='/login'
+              exact={true}
+              activeClassName='active'
+            >
+              <Button variant="light">Log In</Button>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              style={{ textDecoration:'none'}}
+              to='/sign-up'
+              exact={true}
+              activeClassName='active'
+            >
+              <Button variant="danger">Sign Up</Button>
+            </NavLink>
+          </div>
       </div>
     );
   }
 
   return (
     <>
-      <nav>
-        <div className="navbar-container">
-          <ul>
-            <li>
-              <NavLink  style={{ textDecoration:'none'}} to='/' exact={true} activeClassName='active'>
-                Home
-              </NavLink>
-            </li>
+      <nav id="nav-var-container">
+        <div id="navbar-container">
+          <div className="logo-brand">
+            <NavLink  style={{ textDecoration:'none'}} to='/' exact={true} activeClassName='active'>
+              <img alt="logo" className="meowp-logo" src="https://cdn.discordapp.com/attachments/900530489574703194/903389504939900958/unknown.png"></img>
+            </NavLink>
+            <NavLink  style={{ textDecoration:'none'}} to='/' exact={true} activeClassName='active'>
+              <span id="application-brand">Meowp</span>
+            </NavLink>
+          </div>
+          <div className="session-auth">
             {loaded && sessionAuth}
-          </ul>
+          </div>
         </div>
+
         <div className="navbar-container">
           {categoriesArray?.map(category => {
             return (

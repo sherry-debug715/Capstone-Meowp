@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
+import './NavBar.css'
 
 function ProfileIcon() {
 
@@ -28,9 +29,7 @@ function ProfileIcon() {
     return (
         <>
             <div className="profile-container">
-            <span class="material-icons" onClick={openMenu}>
-                face
-            </span>
+            <img alt="profile-button" onClick={openMenu} id="profile-button" src="https://cdn.discordapp.com/attachments/900530489574703194/903399493779742770/unknown.png"/>
             {showMenu && (
                 <ul id="profile-drop-down">
                     <li id="user-name">
