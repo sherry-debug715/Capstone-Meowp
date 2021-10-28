@@ -75,7 +75,11 @@ const BusinessDetail = () => {
     return (
         <>
         <div className="page-container">
-            <Link to='/businesses'>back</Link>
+            <Link to='/businesses'>
+                <span class="material-icons">
+                    keyboard_backspace
+                </span>
+            </Link>
             <div className="header-container">
                 <div className="carousel-container">
                     <Carousel>
