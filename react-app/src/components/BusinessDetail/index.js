@@ -45,6 +45,7 @@ const BusinessDetail = () => {
                 userName={review?.user?.username}
                 userSrc={review?.user?.photo}
                 userAlt={review?.user?.username[0]}
+                userInitial={review?.user?.username[0]}
                 userCity={review?.user?.city}
                 userState={review?.user?.state}
                 reviewContent={review?.content}
