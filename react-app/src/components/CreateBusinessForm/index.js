@@ -54,16 +54,16 @@ const CreateBusinessForm = () => {
         if(!media_1.endsWith("jpg") && !media_1.endsWith("png")) {
             validationErrors["media_1"] = `Please provide a valid media url address, a valid media url must ends with "jpg" or "png"`
         }
-        if(!media_2.endsWith("jpg") && !media_2.endsWith("png")) {
+        if((media_2) && (!media_2.endsWith("jpg") && !media_2.endsWith("png"))) {
             validationErrors["media_1"] = `Please provide a valid media url address, a valid media url must ends with "jpg" or "png"`
         }
-        if(!media_3.endsWith("jpg") && !media_3.endsWith("png")) {
+        if(media_3 && !media_3.endsWith("jpg") && !media_3.endsWith("png")) {
             validationErrors["media_1"] = `Please provide a valid media url address, a valid media url must ends with "jpg" or "png"`
         }
-        if(!media_4.endsWith("jpg") && !media_4.endsWith("png")) {
+        if(media_4 && !media_4.endsWith("jpg") && !media_4.endsWith("png")) {
             validationErrors["media_1"] = `Please provide a valid media url address, a valid media url must ends with "jpg" or "png"`
         }
-        if(!media_5.endsWith("jpg") && !media_5.endsWith("png")) {
+        if(media_5 && !media_5.endsWith("jpg") && !media_5.endsWith("png")) {
             validationErrors["media_1"] = `Please provide a valid media url address, a valid media url must ends with "jpg" or "png"`
         }
 
@@ -192,7 +192,7 @@ const CreateBusinessForm = () => {
                         </div>
                         <div className="form-content">
                             <label className="business-name">
-                                Business URL_2
+                                Business URL_2 (Optional)
                             </label>
                             <input
                                 type="text"
@@ -207,7 +207,7 @@ const CreateBusinessForm = () => {
                         </div>
                         <div className="form-content">
                             <label className="business-name">
-                                Business URL_3
+                                Business URL_3 (Optional)
                             </label>
                             <input
                                 type="text"
@@ -222,7 +222,7 @@ const CreateBusinessForm = () => {
                         </div>
                         <div className="form-content">
                             <label className="business-name">
-                                Business URL_4
+                                Business URL_4 (Optional)
                             </label>
                             <input
                                 type="text"
@@ -237,7 +237,7 @@ const CreateBusinessForm = () => {
                         </div>
                         <div className="form-content">
                             <label className="business-name">
-                                Business URL_5
+                                Business URL_5 (Optional)
                             </label>
                             <input
                                 type="text"
