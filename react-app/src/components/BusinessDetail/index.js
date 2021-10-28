@@ -53,6 +53,7 @@ const BusinessDetail = () => {
                 userState={review?.user?.state}
                 reviewContent={review?.content}
                 rating={review?.rating}
+                currentUser={currentUser?.id === review?.user_id}
                 editDeleteButtons={
                     <>
                     {currentUser?.id === review?.user_id && (
