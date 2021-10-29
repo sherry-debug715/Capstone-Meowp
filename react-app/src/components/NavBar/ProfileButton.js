@@ -37,19 +37,32 @@ function ProfileIcon() {
                 </div>
                 <div className="dropdown-content">
                     {showMenu && (
-                        <ul id="profile-drop-down">
-                            <li id="user-name">
-                                {sessionUser?.username}
-                            </li>
-                            {sessionUser?.city &&(
-                                <li>
-                                    {sessionUser?.city}, {sessionUser?.state}
-                                </li>
-                            )}
-                            <li>
+                        <div id="profile-drop-down">
+                            <div className="user-info">
+                                <div id="profile-dropdown-content">
+                                    <span id="material-icon-profile" class="material-icons">
+                                        face
+                                    </span>
+                                    <p className="user-info-content">{sessionUser?.username}</p>
+                                </div>
+                                {sessionUser?.city &&(
+                                    <div id="profile-dropdown-content">
+                                        <span id="material-icon-profile" class="material-icons">
+                                            location_city
+                                        </span>
+                                        <p className="user-info-content">{sessionUser?.city}</p>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div id="profile-dropdown-content" className="logout-btn-container">
+                                <span id="material-icon-profile" class="material-icons">
+                                    logout
+                                </span>
                                 <LogoutButton />
-                            </li>
-                        </ul>
+                            </div>
+
+                        </div>
                     )}
                 </div>
             </div>

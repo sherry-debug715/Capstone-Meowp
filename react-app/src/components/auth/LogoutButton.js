@@ -1,6 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
+import Button from 'react-bootstrap/Button';
+import '../NavBar/NavBar.css'
+
 
 const LogoutButton = () => {
   const dispatch = useDispatch()
@@ -9,7 +12,8 @@ const LogoutButton = () => {
     window.location.href = "/";
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+
+  return <Button onClick={onLogout} variant="danger" size="sm">Log Out</Button>
 };
 
 export default LogoutButton;

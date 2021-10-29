@@ -69,6 +69,7 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     transition-duration: .3s;
 }
 
+
 #create-business-btn:hover {
     background-color: #eeeeef;
     padding: 8px;
@@ -93,4 +94,40 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     justify-content: space-around;
 }
 
+#profile-drop-down {
+    border-radius: 10px;
+    box-shadow: RGB(0 0 0/10%) 0px 1px 20px 0px;
+    width: 200px;
+    height: 150px;
+    padding: 20px;
+    position: absolute;
+    z-index: 11;
+    background-color: white;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
 
+#material-icon-profile {
+    color: #5f6368;
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+#profile-dropdown-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.logout-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-bottom: 5px;
+}
+
+.user-info-content {
+    font-weight: 600;
+    color: rgba(43,39,60,1);
+}
