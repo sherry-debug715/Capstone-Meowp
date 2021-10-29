@@ -17,7 +17,6 @@ const BusinessOfCategory = () => {
     }, [dispatch]);
 
     const businessOfCategory = businesesArray?.filter(business => business?.category_id == +categoryId)
-    console.log("=====================>", businessOfCategory)
 
     const categoryBusinesses = businessOfCategory?.map(business => (
         <div key={business.id} className="business-display-container">
@@ -34,9 +33,6 @@ const BusinessOfCategory = () => {
             </div>
         </div>
     ))
-
-
-
 
     return (
         <>
