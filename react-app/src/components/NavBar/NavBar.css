@@ -1,6 +1,13 @@
 @import url('http://fonts.cdnfonts.com/css/open-sans');
 body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow-x: hidden;}
 
+
+#nav-var-container {
+    position: relative;
+    height: 60px;
+}
+
+
 #navbar-container {
     display: flex;
     flex-direction: row;
@@ -9,11 +16,6 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     margin: 15px 20px;
 }
 
-
-#nav-var-container {
-    position: relative;
-    height: 200px;
-}
 
 .meowp-logo {
     max-height: 65px;
@@ -40,4 +42,3 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
 .login-btn {
     margin-right: 10px;
 }
-
