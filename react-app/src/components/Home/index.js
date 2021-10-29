@@ -63,7 +63,7 @@ const HomePage = () => {
                 </div>
 
                 <div id="business-display-container">
-                    <h3>Learn how to market your business on Meowp like a pro</h3>
+                    <h3 className="blog-section-title"><p>Learn how to market your business on</p><p>Meowp like a pro</p></h3>
                     <div id="blog-card-content">
                         <div>
                             <BlogCard
