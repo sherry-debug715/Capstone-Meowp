@@ -81,9 +81,11 @@ const LoginForm = () => {
               />
             </div>
             <div className="auth-btns">
-              <Button type='submit' variant="danger">Login</Button>
+              <Button size="lg" id="login-btn" type='submit' variant="danger">Login</Button>
               <Button
               onClick={demoUser}
+              id="login-btn"
+              size="lg"
               type='submit'
               className="demo_user_modal"
               variant="secondary">Demo User</Button>{' '}
