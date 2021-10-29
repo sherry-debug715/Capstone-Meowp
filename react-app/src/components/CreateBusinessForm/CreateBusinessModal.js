@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreateBusinessForm from './index';
+import '../NavBar/NavBar.css'
+
 
 function CreateBusinessModal() {
     const [showModal, setShowModal] = useState(false);
@@ -8,7 +10,7 @@ function CreateBusinessModal() {
         <>
         <div>
             <button
-            className='create-business-form'
+            id='create-business-btn'
             onClick={() => setShowModal(true)}
             >
                 Create A New Business
