@@ -77,94 +77,94 @@ const BusinessDetail = () => {
     ))
 
     return (
-        <>
-        <div className="page-container">
-            <Link to='/businesses'>
-                <span class="material-icons">
-                    keyboard_backspace
-                </span>
-            </Link>
-            <div className="header-container">
-                <div className="carousel-container">
-                    <Carousel>
-                        <Carousel.Item>
-                            <img
-                            className="carousels"
-                            // className="d-block w-100"
-                            src={businessesObj?.business?.media_1}
-                            alt={businessesObj?.business?.description}
-                            />
-                        </Carousel.Item>
-                        {businessesObj?.business?.media_2 && (
+        <div id="body-container-business">
+            <div className="page-container">
+                <Link to='/businesses'>
+                    <span class="material-icons">
+                        keyboard_backspace
+                    </span>
+                </Link>
+                <div className="header-container">
+                    <div className="carousel-container">
+                        <Carousel>
                             <Carousel.Item>
                                 <img
                                 className="carousels"
                                 // className="d-block w-100"
-                                src={businessesObj?.business?.media_2}
+                                src={businessesObj?.business?.media_1}
                                 alt={businessesObj?.business?.description}
                                 />
                             </Carousel.Item>
-                        )}
-                        {businessesObj?.business?.media_3 && (
-                            <Carousel.Item>
-                                <img
-                                className="carousels"
-                                // className="d-block w-100"
-                                src={businessesObj?.business?.media_3}
-                                alt={businessesObj?.business?.description}
-                                />
-                            </Carousel.Item>
-                        )}
-                        {businessesObj?.business?.media_4 && (
-                            <Carousel.Item>
-                                <img
-                                // className="d-block w-100"
-                                className="carousels"
-                                src={businessesObj?.business?.media_4}
-                                alt={businessesObj?.business?.description}
-                                />
-                            </Carousel.Item>
-                        )}
-                        {businessesObj?.business?.media_5 && (
-                            <Carousel.Item>
-                                <img
-                                // className="d-block w-100"
-                                className="carousels"
-                                src={businessesObj?.business?.media_5}
-                                alt={businessesObj?.business?.description}
-                                />
-                            </Carousel.Item>
-                        )}
-                    </Carousel>
-                        <Carousel.Caption>
-                            <div className="carousel-content">
-                                <div className="contents">
-                                    <h1 className="business-name-businessDetail">{businessesObj?.business?.title}</h1>
-                                    {currentUser?.id === businessDetail?.owner_id && (
-                                        <div className="edit-business-button-container">
-                                            <EditBusinessModal businessesObj={businessesObj} />
+                            {businessesObj?.business?.media_2 && (
+                                <Carousel.Item>
+                                    <img
+                                    className="carousels"
+                                    // className="d-block w-100"
+                                    src={businessesObj?.business?.media_2}
+                                    alt={businessesObj?.business?.description}
+                                    />
+                                </Carousel.Item>
+                            )}
+                            {businessesObj?.business?.media_3 && (
+                                <Carousel.Item>
+                                    <img
+                                    className="carousels"
+                                    // className="d-block w-100"
+                                    src={businessesObj?.business?.media_3}
+                                    alt={businessesObj?.business?.description}
+                                    />
+                                </Carousel.Item>
+                            )}
+                            {businessesObj?.business?.media_4 && (
+                                <Carousel.Item>
+                                    <img
+                                    // className="d-block w-100"
+                                    className="carousels"
+                                    src={businessesObj?.business?.media_4}
+                                    alt={businessesObj?.business?.description}
+                                    />
+                                </Carousel.Item>
+                            )}
+                            {businessesObj?.business?.media_5 && (
+                                <Carousel.Item>
+                                    <img
+                                    // className="d-block w-100"
+                                    className="carousels"
+                                    src={businessesObj?.business?.media_5}
+                                    alt={businessesObj?.business?.description}
+                                    />
+                                </Carousel.Item>
+                            )}
+                        </Carousel>
+                            <Carousel.Caption>
+                                <div className="carousel-content">
+                                    <div className="contents">
+                                        <h1 className="business-name-businessDetail">{businessesObj?.business?.title}</h1>
+                                        {currentUser?.id === businessDetail?.owner_id && (
+                                            <div className="edit-business-button-container">
+                                                <EditBusinessModal businessesObj={businessesObj} />
+                                            </div>
+                                        )}
+                                        <div className="review-amount">
+                                            {businessesObj?.business?.review?.length} reviews
                                         </div>
-                                    )}
-                                    <div className="review-amount">
-                                        {businessesObj?.business?.review?.length} reviews
-                                    </div>
-                                    <div className="address">
-                                        {businessesObj?.business?.address} {businessesObj?.business?.city} {businessesObj?.business?.state}
+                                        <div className="address">
+                                            {businessesObj?.business?.address} {businessesObj?.business?.city} {businessesObj?.business?.state}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Carousel.Caption>
+                            </Carousel.Caption>
+                    </div>
+                </div>
+
+                <div className="button-section">
+                    <CreateReviewModal businessDetail={businessDetail} />
+                </div>
+                <div className="review-section">
+                    {businessComments}
                 </div>
             </div>
-
-            <div className="button-section">
-                <CreateReviewModal businessDetail={businessDetail} />
-            </div>
-            <div className="review-section">
-                {businessComments}
-            </div>
         </div>
-        </>
     )
 }
 

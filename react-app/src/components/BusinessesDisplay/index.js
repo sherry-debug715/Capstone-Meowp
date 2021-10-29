@@ -34,11 +34,11 @@ const BusinessesDisplay = () => {
     ))
 
     return (
-        <>
+        <div id="body-container-businesses">
             <div className="businesses-display-page-container">
                 {allBusinesses}
             </div>
-        </>
+        </div>
     )
 }
 

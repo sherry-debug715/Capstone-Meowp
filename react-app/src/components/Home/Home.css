@@ -9,6 +9,10 @@
 
 .carousel{
     width: 100vw;
+
+}
+
+.carousel.landing-page {
     height: 500px;
 }
 

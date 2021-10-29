@@ -35,11 +35,11 @@ const BusinessOfCategory = () => {
     ))
 
     return (
-        <>
+        <div id="body-container-category">
             <div className="business-of-category-container">
                 {categoryBusinesses}
             </div>
-        </>
+        </div>
     )
 
 }
