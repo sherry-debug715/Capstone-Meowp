@@ -19,10 +19,10 @@ const HomePage = () => {
 
 
     return (
-        <>
+        <div id="body-container-landing">
             <div id="splashpage_container_main">
                 <div id="carousel-container">
-                    <div className="carousel">
+                    <div className="carousel landing-page">
                         <div
                             className="inner_carousel"
                             style={{
@@ -89,7 +89,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

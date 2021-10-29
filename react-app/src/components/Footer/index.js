@@ -8,7 +8,6 @@ const Footer = () => {
     let gitHubLogo = "https://cdn.discordapp.com/attachments/900530489574703194/903647747654180904/unknown.png";
 
     return (
-        <>
             <footer id="footer">
                 <div id="footer-upper">
                     <div className="footer-slogans">
@@ -36,7 +35,6 @@ const Footer = () => {
                     <p>Copyright 2021 © All Rights Reserved</p>
                 </div>
             </footer>
-        </>
     )
 }
 

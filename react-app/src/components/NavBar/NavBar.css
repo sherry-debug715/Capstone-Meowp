@@ -14,6 +14,7 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     margin: 0;
     display: flex;
     flex-direction: column;
+    grid-area: header;
 }
 
 #navbar-container {

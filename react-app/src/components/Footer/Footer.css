@@ -5,11 +5,11 @@ footer {
     border-top: 1px solid lightgray;
     height: 150px;
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0px;
     z-index: 500;
-    margin-top: 100px;
     background-color: lightgray;
+    grid-area: footer;
 }
 
 #footer-upper {
