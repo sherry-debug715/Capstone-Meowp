@@ -140,10 +140,14 @@ const SignUpForm = () => {
               )}
             </div>
             <div className="auth-btns">
-              <Button type="submit" variant="danger">Sign Up</Button>
+              <Button
+              type="submit"
+              id="signup-btn"
+              size="lg"
+              variant="danger">Sign Up</Button>
             </div>
             <div className="loginSignupText">
-              Already have an account? <NavLink to="/login">Log In </NavLink>
+              <span>Already have on Meowp?</span><NavLink className="login-btn-st" to="/login">Log In </NavLink>
             </div>
           </div>
           <div className="right-section">
