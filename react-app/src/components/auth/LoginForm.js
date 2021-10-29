@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory, NavLink } from 'react-router-dom';
 import { login } from '../../store/session';
 import './Auth.css'
+import Button from 'react-bootstrap/Button'
 
 
 const LoginForm = () => {
@@ -12,6 +13,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const pageImg = "https://cdn.discordapp.com/attachments/900530489574703194/903747623159218206/unknown.png";
+
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -42,45 +45,56 @@ const LoginForm = () => {
   }
 
   return (
-    <form className="log-in-form" onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-
-      <div id="auth-container">
-        <div className="left-section">
-          <div>
-            <h1 id="auth-title">Log in to Meowp</h1>
-            <label htmlFor='email'>Email</label>
-            <input
-              name='email'
-              type='email'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
-          <div>
-            <label htmlFor='password'>Password</label>
-            <input
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
-            <button type='submit'>Login</button>
-          </div>
-          <button
-            className="demo_user_modal"
-            type='submit' onClick={demoUser}>
-              Demo User
-          </button>
+    <div id="login-signup-container">
+      <form className="log-in-form" onSubmit={onLogin}>
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
         </div>
-      </div>
-    </form>
+        <div id="auth-container">
+          <div className="left-section">
+              <h2 id="auth-title">Log in to Meowp</h2>
+              <div className="auth-title-h">
+                <p className="stc"> New to Meowp?</p>
+                <NavLink className="stc signup" to="/sign-up">Sign up</NavLink>
+              </div>
+            <div className="auth-input-section">
+              <label className="auth-label" htmlFor='email'>Email</label>
+              <input
+                name='email'
+                type='email'
+                value={email}
+                onChange={updateEmail}
+                className="auth-input"
+              />
+            </div>
+            <div className="auth-input-section">
+              <label className="auth-label" htmlFor='password'>Password</label>
+              <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+                className="auth-input"
+              />
+            </div>
+            <div className="auth-btns">
+              <Button type='submit' variant="danger">Login</Button>
+              <Button
+              onClick={demoUser}
+              type='submit'
+              className="demo_user_modal"
+              variant="secondary">Demo User</Button>{' '}
+            </div>
+          </div>
+          <div className="right-section">
+            <img className="auth-image" src={pageImg} alt="auth image"/>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 
