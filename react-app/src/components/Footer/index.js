@@ -32,7 +32,6 @@ const Footer = () => {
                             </div>
                     </div>
                 </div>
-                <hr className="footer-line-breaker" />
                 <div className="footer-bottom">
                     <p>Copyright 2021 © All Rights Reserved</p>
                 </div>
