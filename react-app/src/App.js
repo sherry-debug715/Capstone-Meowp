@@ -12,6 +12,7 @@ import BusinessesDisplay from './components/BusinessesDisplay';
 import BusinessDetail from './components/BusinessDetail';
 import BusinessOfCategory from './components/CategoryFilter';
 import HomePage from './components/Home';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
           </ProtectedRoute>
         </Switch>
       )}
+      <Footer />
     </BrowserRouter>
   );
 }
