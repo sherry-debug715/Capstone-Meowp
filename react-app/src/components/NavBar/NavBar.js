@@ -30,8 +30,8 @@ const NavBar = ( { loaded } ) => {
               <NavLink  style={{ textDecoration:'none'}} to='/' exact={true} activeClassName='active'>
                 <img alt="logo" className="meowp-logo" src="https://cdn.discordapp.com/attachments/900530489574703194/903389504939900958/unknown.png"></img>
               </NavLink>
-              <NavLink  style={{ textDecoration:'none'}} to='/' exact={true} activeClassName='active'>
-                <span id="application-brand">Meowp</span>
+              <NavLink  style={{ textDecoration:'none'}} to='/' exact={true}>
+                <img alt="business logo" className="meowp-business-logo" src="https://cdn.discordapp.com/attachments/900530489574703194/903782081266610196/unknown.png"></img>
               </NavLink>
             </div>
             <div id="profile-icon-create-business">
@@ -73,7 +73,7 @@ const NavBar = ( { loaded } ) => {
                 <img alt="logo" className="meowp-logo" src="https://cdn.discordapp.com/attachments/900530489574703194/903389504939900958/unknown.png"></img>
               </NavLink>
               <NavLink  style={{ textDecoration:'none'}} to='/' exact={true} activeClassName='active'>
-                <span id="application-brand">Meowp</span>
+                <img alt="business logo" className="meowp-business-logo" src="https://cdn.discordapp.com/attachments/900530489574703194/903782081266610196/unknown.png"></img>
               </NavLink>
             </div>
             <div id="login-signup-container">
