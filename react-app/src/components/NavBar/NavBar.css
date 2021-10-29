@@ -5,8 +5,16 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
 #nav-var-container {
     position: relative;
     height: 60px;
+    margin: 0;
 }
 
+#log-in-nav-bar-container {
+    position: relative;
+    height: 130px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
 
 #navbar-container {
     display: flex;
@@ -39,6 +47,37 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     display: flex;
     flex-direction: row;
 }
+
 .login-btn {
     margin-right: 10px;
+}
+
+#create-business-btn {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-weight: 600;
+    color:rgba(43,39,60,1);
+    margin-right: 10px;
+}
+
+#profile-icon-create-business {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.profile-btn-drowdown{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.category-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

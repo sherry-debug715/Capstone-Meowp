@@ -29,22 +29,29 @@ function ProfileIcon() {
     return (
         <>
             <div className="profile-container">
-            <img alt="profile-button" onClick={openMenu} id="profile-button" src="https://cdn.discordapp.com/attachments/900530489574703194/903399493779742770/unknown.png"/>
-            {showMenu && (
-                <ul id="profile-drop-down">
-                    <li id="user-name">
-                        {sessionUser?.username}
-                    </li>
-                    {sessionUser?.city &&(
-                        <li>
-                            {sessionUser?.city}, {sessionUser?.state}
-                        </li>
+                <div className="profile-btn-drowdown">
+                    <img alt="profile-button" onClick={openMenu} id="profile-button" src="https://cdn.discordapp.com/attachments/900530489574703194/903399493779742770/unknown.png"/>
+                    <span class="material-icons" onClick={openMenu}>
+                        arrow_drop_down
+                    </span>
+                </div>
+                <div className="dropdown-content">
+                    {showMenu && (
+                        <ul id="profile-drop-down">
+                            <li id="user-name">
+                                {sessionUser?.username}
+                            </li>
+                            {sessionUser?.city &&(
+                                <li>
+                                    {sessionUser?.city}, {sessionUser?.state}
+                                </li>
+                            )}
+                            <li>
+                                <LogoutButton />
+                            </li>
+                        </ul>
                     )}
-                    <li>
-                        <LogoutButton />
-                    </li>
-                </ul>
-            )}
+                </div>
             </div>
         </>
     )
