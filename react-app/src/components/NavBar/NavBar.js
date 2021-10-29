@@ -51,7 +51,7 @@ const NavBar = ( { loaded } ) => {
                     key={category?.id}
                     style={{
                       textDecoration:'none',
-                      color: 'rgba(43,39,60,1)'
+                      color: 'rgba(43,39,60,1)',
                     }}
                     value={category?.id}>
                       {category?.name}

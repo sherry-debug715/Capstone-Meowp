@@ -36,6 +36,10 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     width:auto;
 }
 
+#material-icon-arrow-dropdown {
+    cursor: pointer;
+}
+
 #application-brand {
     font-family: 'SC Gum Kids', sans-serif;
     color: #dc3545;
@@ -60,8 +64,15 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     overflow: hidden;
     outline: none;
     font-weight: 600;
-    color:rgba(43,39,60,1);
+    color: rgba(43,39,60,1);
     margin-right: 10px;
+    transition-duration: .3s;
+}
+
+#create-business-btn:hover {
+    background-color: #eeeeef;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 #profile-icon-create-business {
@@ -81,3 +92,5 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     flex-direction: row;
     justify-content: space-around;
 }
+
+

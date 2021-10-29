@@ -31,7 +31,7 @@ function ProfileIcon() {
             <div className="profile-container">
                 <div className="profile-btn-drowdown">
                     <img alt="profile-button" onClick={openMenu} id="profile-button" src="https://cdn.discordapp.com/attachments/900530489574703194/903399493779742770/unknown.png"/>
-                    <span class="material-icons" onClick={openMenu}>
+                    <span id="material-icon-arrow-dropdown" class="material-icons" onClick={openMenu}>
                         arrow_drop_down
                     </span>
                 </div>
