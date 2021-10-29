@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
+
+
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
@@ -74,61 +76,65 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-        {validationErrors.username && (
-          <div className="error-handling">
-            {validationErrors.username}
-          </div>
-        )}
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='email'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-        { validationErrors.password && (
-          <div className="error-handling">
-             {validationErrors.password}
-          </div>
-        )}
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-        {validationErrors.repeatPassword && (
-           <div className="error-handling">
-           {validationErrors.repeatPassword}
+      <div id="auth-container">
+
+        <h1 id="auth-title">Sign Up for Meowp</h1>
+        <div>
+          <label>User Name</label>
+          <input
+            type='text'
+            name='username'
+            onChange={updateUsername}
+            value={username}
+          ></input>
+          {validationErrors.username && (
+            <div className="error-handling">
+              {validationErrors.username}
+            </div>
+          )}
         </div>
-        )}
-      </div>
-      <button type='submit'>Sign Up</button>
-      <div className="loginSignupText">
-				Already have an account? <NavLink to="/login">Log In </NavLink>
+        <div>
+          <label>Email</label>
+          <input
+            type='email'
+            name='email'
+            onChange={updateEmail}
+            value={email}
+          ></input>
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type='password'
+            name='password'
+            onChange={updatePassword}
+            value={password}
+          ></input>
+          { validationErrors.password && (
+            <div className="error-handling">
+              {validationErrors.password}
+            </div>
+          )}
+        </div>
+        <div>
+          <label>Repeat Password</label>
+          <input
+            type='password'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+          {validationErrors.repeatPassword && (
+            <div className="error-handling">
+            {validationErrors.repeatPassword}
+          </div>
+          )}
+        </div>
+        <button type='submit'>Sign Up</button>
+        <div className="loginSignupText">
+          Already have an account? <NavLink to="/login">Log In </NavLink>
+        </div>
       </div>
     </form>
   );
