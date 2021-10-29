@@ -12,9 +12,9 @@ function BlogCard({src, alt, title, blogUrl}) {
                 <div className="blog-title-link">
                     <div><p className="blog-title">{title}</p></div>
                     <div className="blog-link-container">
-                        <Link id="blog-link" to={blogUrl}>
+                        <a id="blog-link" href={blogUrl}>
                             Read article
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
