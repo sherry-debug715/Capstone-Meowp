@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
+import './Auth.css'
+
 
 const LoginForm = () => {
   const history = useHistory();
@@ -46,32 +48,38 @@ const LoginForm = () => {
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='email'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
+
+      <div id="auth-container">
+        <div className="left-section">
+          <div>
+            <h1 id="auth-title">Log in to Meowp</h1>
+            <label htmlFor='email'>Email</label>
+            <input
+              name='email'
+              type='email'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            <label htmlFor='password'>Password</label>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+            <button type='submit'>Login</button>
+          </div>
+          <button
+            className="demo_user_modal"
+            type='submit' onClick={demoUser}>
+              Demo User
+          </button>
+        </div>
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-      <button
-        className="demo_user_modal"
-        type='submit' onClick={demoUser}>
-          Demo User
-      </button>
     </form>
   );
 };

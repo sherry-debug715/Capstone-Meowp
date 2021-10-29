@@ -10,24 +10,20 @@ const Footer = () => {
     return (
             <footer id="footer">
                 <div id="footer-upper">
-                    <div className="footer-slogans">
-                        <div className="slogan1">"Real People Real Reviews"</div>
-                        <div className="slogan2">"A Place to Meowp Your Review"</div>
-                    </div>
                     <div className="slogan2">Designed and Engineered by Sherry Yu</div>
                     <div className="read-about-me">
                         <div>About Me</div>
                             <div className="linkedin">
                                 <span>Linkedin: </span>
-                                <Link className="link-linkedin" to="https://www.linkedin.com/in/xiaozhuyu/">
+                                <a className="link-linkedin" href="https://www.linkedin.com/in/xiaozhuyu/">
                                     <img id="about-me-logo" src={linkedinLogo} alt="linkedin-logo"/>
-                                </Link>
+                                </a>
                             </div>
                             <div className="github">
                                 <span>GitHub: </span>
-                                <Link className="link-gitHub" to="https://github.com/sherry-debug715">
+                                <a className="link-gitHub" href="https://github.com/sherry-debug715">
                                     <img id="about-me-logo" src={gitHubLogo} alt="gitHub-logo"/>
-                                </Link>
+                                </a>
                             </div>
                     </div>
                 </div>
