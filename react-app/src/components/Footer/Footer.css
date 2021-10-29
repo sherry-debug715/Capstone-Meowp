@@ -3,7 +3,7 @@ footer {
     display: flex;
     flex-direction: column;
     border-top: 1px solid lightgray;
-    height: 100px;
+    height: 150px;
     width: 100%;
     position: relative;
     bottom: 0px;
@@ -33,5 +33,5 @@ footer {
 .footer-bottom {
     display: flex;
     flex-direction: row;
-    
+
 }
