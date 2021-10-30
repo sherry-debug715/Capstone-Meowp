@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { editBusinessThunk, deleteBusinessThunk, getAllBusinessesThunk } from "../../store/businesses";
 import Button from 'react-bootstrap/Button'
 import { businessDetailThunk } from '../../store/businesses';
-
+import '../CreateBusinessForm/CreateEditBusiness.css';
 
 function EditBusinessForm( { businessesObj } ) {
 
@@ -114,126 +114,136 @@ function EditBusinessForm( { businessesObj } ) {
 
     return (
         <>
-            <section className="editbusiness-form-container">
-                <form onSubmit={handleEditBusinessSubmit}>
-                    <div className="title-container">
-                        Update Business Details
+            <section>
+                <form className="business-form-container" onSubmit={handleEditBusinessSubmit}>
+                    <div>
+                        <div className="business-title-st">
+                            <img className="business-brand-img" src="https://cdn.discordapp.com/attachments/900530489574703194/903389504939900958/unknown.png" alt="brand"/>
+                            <h2 className="business-title">Update Business Details</h2>
+                        </div>
                     </div>
-                    <div className="message-edit-business">
-                        Any suggested changes to a business page must first be verified by Yelp’s moderators.
+                    <div className="business-content">
+                        <div className="form-content">
+                            <label className="business-labels">
+                                Business Name
+                            </label>
+                            <input
+                                className="business-input"
+                                type="text"
+                                required
+                                value={title}
+                                onChange={e => setTitle(e.target.value)}
+                            />
+                            {validationErrors.title && (
+                                <div className="error-handling">
+                                    {validationErrors.title}
+                                </div>
+                            )}
+                        </div>
+                        <div className="form-content">
+                            <label className="business-labels">
+                                Address
+                            </label>
+                            <input
+                                className="business-input"
+                                type="text"
+                                required
+                                value={address}
+                                onChange={e => setAddress(e.target.value)}
+                            />
+                            { validationErrors.address && (
+                                <div className="error-handling">
+                                    { validationErrors.address}
+                                </div>
+                            )}
+                        </div>
+                        <div className="form-content">
+                            <label className="business-labels">
+                                City
+                            </label>
+                            <input
+                                className="business-input"
+                                type="text"
+                                required
+                                value={city}
+                                onChange={e => setCity(e.target.value)}
+                            />
+                            { validationErrors.city && (
+                                <div className="error-handling">
+                                    { validationErrors.city}
+                                </div>
+                            )}
+                        </div>
+                        <div className="form-content">
+                            <label className="business-labels">
+                                ZIP
+                            </label>
+                            <input
+                                className="business-input"
+                                type="text"
+                                required
+                                value={zip_code}
+                                onChange={e => setZipCode(e.target.value)}
+                            />
+                            { validationErrors.zip_code && (
+                                <div className="error-handling">
+                                    { validationErrors.zip_code}
+                                </div>
+                            )}
+                        </div>
+                        <div className="form-content">
+                            <label className="business-labels">
+                                Edit photo
+                            </label>
+                            <input
+                                className="business-input"
+                                type="text"
+                                required
+                                value={media_1}
+                                onChange={e => setMedia1(e.target.value)}
+                            />
+                            {validationErrors.media_1 && (
+                                <div className="error-handling">
+                                    {validationErrors.media_1}
+                                </div>
+                            )}
+                        </div>
+                        <div className="form-content">
+                            <label className="business-labels">
+                                Description
+                            </label>
+                            <textarea
+                                className="business-textarea"
+                                type="text"
+                                required
+                                value={description}
+                                onChange={e => setDescription(e.target.value)}
+                            />
+                            { validationErrors.description && (
+                                <div className="error-handling">
+                                    { validationErrors.description}
+                                </div>
+                            )}
+                        </div>
                     </div>
-                    <div className="form-content">
-                        <label className="business-name">
-                            Business Name
-                        </label>
-                        <input
-                            type="text"
-                            required
-                            value={title}
-                            onChange={e => setTitle(e.target.value)}
-                        />
-                        {validationErrors.title && (
-                            <div className="error-handling">
-                                {validationErrors.title}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-content">
-                        <label className="business-address">
-                            Address
-                        </label>
-                        <input
-                            type="text"
-                            required
-                            value={address}
-                            onChange={e => setAddress(e.target.value)}
-                        />
-                        { validationErrors.address && (
-                            <div className="error-handling">
-                                { validationErrors.address}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-content">
-                        <label className="business-city">
-                            City
-                        </label>
-                        <input
-                            type="text"
-                            required
-                            value={city}
-                            onChange={e => setCity(e.target.value)}
-                        />
-                        { validationErrors.city && (
-                            <div className="error-handling">
-                                { validationErrors.city}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-content">
-                        <label className="business-zip">
-                            ZIP
-                        </label>
-                        <input
-                            type="text"
-                            required
-                            value={zip_code}
-                            onChange={e => setZipCode(e.target.value)}
-                        />
-                        { validationErrors.zip_code && (
-                            <div className="error-handling">
-                                { validationErrors.zip_code}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-content">
-                        <label className="business-image">
-                            Edit photo
-                        </label>
-                        <input
-                            type="text"
-                            required
-                            value={media_1}
-                            onChange={e => setMedia1(e.target.value)}
-                        />
-                        {validationErrors.media_1 && (
-                            <div className="error-handling">
-                                {validationErrors.media_1}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-content">
-                        <label className="description">
-                            Description
-                        </label>
-                        <textarea
-                            type="text"
-                            required
-                            value={description}
-                            onChange={e => setDescription(e.target.value)}
-                        />
-                        { validationErrors.description && (
-                            <div className="error-handling">
-                                { validationErrors.description}
-                            </div>
-                        )}
-                    </div>
-                    <div className="edit-business-buttons">
-                        <Button type="submit" className="save-business-edit" variant="danger">Submit Changes</Button>
+                    <div className="business-btns">
+                        <Button type="submit" className="business-btn" variant="danger">Submit Changes</Button>
                         <Button
                         onClick={() =>{
                             let modal = document.getElementById('modal-background')
                             modal.click()
                         }}
+                        className="business-btn-m"
                         variant="secondary">
                             Cancel
                         </Button>{' '}
                         <Button
+                        className="business-btn"
                         value={ businessesObj?.business.id }
                         className="delete-business-button"
-                        variant="danger"
+                        variant="dark"
                         onClick={handleDeleteBusiness}
-                        >Delete</Button>
+                        >Delete Business</Button>
                     </div>
                 </form>
             </section>

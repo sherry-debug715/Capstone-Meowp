@@ -1,0 +1,75 @@
+.business-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.business-title {
+    font-size: 28px;
+    margin-bottom: 6px;
+    color: #d32323;
+}
+
+.business-title-st {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.business-brand-img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.business-labels {
+    width: 120px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.form-content {
+    width: 450px;
+    margin-top: 30px;
+}
+
+.business-input {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    color: lightgray;
+    outline: none;
+    transition-duration: .3s;
+}
+
+.business-input:hover {
+    border-bottom: 1.5px solid #d32323;
+}
+
+.business-textarea {
+    height: 80px;
+    width: 300px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    color: lightgray;
+    outline: none;
+    transition-duration: .3s;
+}
+
+.business-textarea:hover {
+    border: 1.5px solid #d32323;
+}
+
+.business-btns {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.business-btn-m {
+    margin: 0 10px;
+}

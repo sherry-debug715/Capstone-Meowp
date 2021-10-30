@@ -165,8 +165,8 @@ const CreateBusinessForm = () => {
 
     return (
         <>
-            <section className="create-business-form-container">
-                <div className="create-business-title">
+            <section className="business-form-container">
+                <div className="business-title">
                     Create Business
                 </div>
                 <form className="create-business-form" onSubmit={handleCreateBusiness}>
