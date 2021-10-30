@@ -41,10 +41,9 @@ body { margin: 0; padding: 0; background-color: white; max-width: 100%; overflow
     cursor: pointer;
 }
 
-#application-brand {
-    font-family: 'SC Gum Kids', sans-serif;
-    color: #dc3545;
-    font-size: 30px;
+.meowp-business-logo {
+    width: 110px;
+    height:43px;
 }
 
 #login-signup-container {
