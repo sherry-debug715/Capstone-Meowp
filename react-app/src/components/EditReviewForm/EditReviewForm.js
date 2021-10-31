@@ -64,7 +64,8 @@ export const EditReviewForm = ( {review} ) => {
                 <div className="review-form">
                     <label className="rating-label">
                         Edit your rating
-                        <select className="dropdown"
+                        <select
+                            className="review-dropdown"
                             value={rating}
                             onChange={e => {
                                 setRating(e.target.value)

@@ -23,12 +23,12 @@ const SignUpForm = () => {
 
     if(typeof username !== "undefined") {
       const re = /^\S*$/;
-      if(username.length < 4 || username > 25 || !re.test(username)) {
+      if(username.length < 4 || username.length > 25 || !re.test(username)) {
         validationErrors["username"] = "Please enter a valid username, username length must be greater than 4 and less than 25 characters"
       }
     }
 
-    if(!password || password.length > 20) {
+    if(!password || password.length < 6 || password.length > 20) {
       validationErrors["password"] = "Please enter a valid password, password length must be less than 20 characters"
     }
 

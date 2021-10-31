@@ -17,7 +17,83 @@ function ReviewDisplayCard({userName, currentUser, userInitial, userSrc, userAlt
         // document.addEventListener('click', closeMenu);
         // return () => document.removeEventListener("click", closeMenu)
     // }, [showMenu]);
+    function handleRating() {
+        if(rating === 1) {
+            return (
+                <>
+                    <span id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                </>
+            )
+        } else if(rating === 2) {
+            return (
+                <>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                </>
+            )
+        } else if(rating === 3) {
+            return (
+                <>
+                    <span  id="rating-icons"class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                </>
+            )
+        } else if(rating === 4) {
+            return (
+                <>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                    <span  id="rating-icons" class="material-icons">
+                        star
+                    </span>
+                </>
+            )
+        }
 
+    }
 
 
     return (
@@ -54,7 +130,7 @@ function ReviewDisplayCard({userName, currentUser, userInitial, userSrc, userAlt
                 </div>
 
                 <div className="review-rating">
-                    {rating}
+                    {handleRating()}
                 </div>
 
                 <div className="review-content">
