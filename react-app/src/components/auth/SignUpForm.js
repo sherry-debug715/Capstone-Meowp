@@ -93,8 +93,11 @@ const SignUpForm = () => {
                 className="auth-input"
               ></input>
               {validationErrors.username && (
-                <div className="error-handling">
-                  {validationErrors.username}
+                <div className="form-error-handling">
+                  <span class="material-icons" id="warning-icon">
+                      error_outline
+                  </span>
+                  <p className="error-content">{validationErrors.username}</p>
                 </div>
               )}
             </div>
@@ -118,8 +121,11 @@ const SignUpForm = () => {
                 className="auth-input"
               ></input>
               { validationErrors.password && (
-                <div className="error-handling">
-                  {validationErrors.password}
+                <div className="form-error-handling">
+                  <span class="material-icons" id="warning-icon">
+                    error_outline
+                  </span>
+                  <p className="error-content">{validationErrors.password}</p>
                 </div>
               )}
             </div>
@@ -134,8 +140,11 @@ const SignUpForm = () => {
                 className="auth-input"
               ></input>
               {validationErrors.repeatPassword && (
-                <div className="error-handling">
-                {validationErrors.repeatPassword}
+                <div className="form-error-handling">
+                  <span class="material-icons" id="warning-icon">
+                    error_outline
+                  </span>
+                  <p className="error-content">{validationErrors.repeatPassword}</p>
               </div>
               )}
             </div>

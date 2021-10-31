@@ -44,9 +44,13 @@ const CreateBusinessForm = () => {
             categoryErrors["newCategory"] = "Category content is limited to 20 characters"
         }
 
+        if(!newCategory.length) {
+            categoryErrors["newCategory"] = "You can not create an empty category"
+        }
+
         categoriesArray.forEach(category => {
             if((category?.name).toLowerCase() === newCategory.toLowerCase()) {
-                return categoryErrors["newCategory"] = "category already exists"
+                return categoryErrors["newCategory"] = "Category already exists"
             }
         })
 
@@ -186,8 +190,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setTitle(e.target.value)}
                             />
                             {validationErrors.title && (
-                                <div className="error-handling">
-                                    {validationErrors.title}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.title}</p>
                                 </div>
                             )}
                         </div>
@@ -202,8 +209,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setMedia1(e.target.value)}
                             />
                             {validationErrors.media_1 && (
-                                <div className="error-handling">
-                                    {validationErrors.media_1}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.media_1}</p>
                                 </div>
                             )}
                         </div>
@@ -218,8 +228,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setMedia2(e.target.value)}
                             />
                             {validationErrors.media_2 && (
-                                <div className="error-handling">
-                                    {validationErrors.media_2}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.media_2}</p>
                                 </div>
                             )}
                         </div>
@@ -234,8 +247,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setMedia3(e.target.value)}
                             />
                             {validationErrors.media_3 && (
-                                <div className="error-handling">
-                                    {validationErrors.media_3}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.media_3}</p>
                                 </div>
                             )}
                         </div>
@@ -250,8 +266,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setMedia4(e.target.value)}
                             />
                             {validationErrors.media_4 && (
-                                <div className="error-handling">
-                                    {validationErrors.media_4}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.media_4}</p>
                                 </div>
                             )}
                         </div>
@@ -266,8 +285,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setMedia5(e.target.value)}
                             />
                             {validationErrors.media_5 && (
-                                <div className="error-handling">
-                                    {validationErrors.media_5}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.media_5}</p>
                                 </div>
                             )}
                         </div>
@@ -301,8 +323,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setAddress(e.target.value)}
                             />
                             { validationErrors.address && (
-                                <div className="error-handling">
-                                    { validationErrors.address}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.address}</p>
                                 </div>
                             )}
                         </div>
@@ -318,8 +343,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setCity(e.target.value)}
                             />
                             { validationErrors.city && (
-                                <div className="error-handling">
-                                    { validationErrors.city}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.city}</p>
                                 </div>
                             )}
                         </div>
@@ -335,8 +363,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setState(e.target.value)}
                             />
                             { validationErrors.state && (
-                                <div className="error-handling">
-                                    { validationErrors.state}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.state}</p>
                                 </div>
                             )}
                         </div>
@@ -352,8 +383,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setZipCode(e.target.value)}
                             />
                             { validationErrors.zip_code && (
-                                <div className="error-handling">
-                                    { validationErrors.zip_code}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.zip_code}</p>
                                 </div>
                             )}
                         </div>
@@ -369,8 +403,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setDescription(e.target.value)}
                             />
                             { validationErrors.description && (
-                                <div className="error-handling">
-                                    { validationErrors.description}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.description}</p>
                                 </div>
                             )}
                         </div>
@@ -402,8 +439,11 @@ const CreateBusinessForm = () => {
                                 onChange={e => setNewCategory(e.target.value)}
                             />
                             { categoryErrors.newCategory && (
-                                <div className="error-handling">
-                                    { categoryErrors.newCategory}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ categoryErrors.newCategory}</p>
                                 </div>
                             )}
                             <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>

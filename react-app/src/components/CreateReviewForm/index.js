@@ -91,8 +91,11 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                     onChange={e => setContent(e.target.value)}
                     />
                     {reviewError.content && (
-                    <div className="review-error-handling">
-                        <p>{reviewError.content}</p>
+                    <div className="form-error-handling">
+                        <span class="material-icons" id="warning-icon">
+                            error_outline
+                        </span>
+                        <p className="error-content">{reviewError.content}</p>
                     </div>
                     )}
                     {reviewError.error && (

@@ -20,7 +20,7 @@ export const EditReviewForm = ( {review} ) => {
 
         if(content.length > 300) {
             reviewError["content"] = `You have exceeded the content length by ${contentLength-300} characters`
-        } else if(!content) {
+        } else if(!content.length) {
             reviewError["content"] = "Review content can't be empty"
         }
 
@@ -84,8 +84,11 @@ export const EditReviewForm = ( {review} ) => {
                     onChange={e => setContent(e.target.value)}
                     />
                     {reviewError.content && (
-                        <div className="review-error-handling">
-                            <p>{reviewError.content}</p>
+                        <div className="form-error-handling">
+                            <span class="material-icons" id="warning-icon">
+                                error_outline
+                            </span>
+                            <p className="error-content">{reviewError.content}</p>
                         </div>
                     )}
                 </div>
