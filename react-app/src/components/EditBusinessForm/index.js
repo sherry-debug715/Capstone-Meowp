@@ -135,8 +135,11 @@ function EditBusinessForm( { businessesObj } ) {
                                 onChange={e => setTitle(e.target.value)}
                             />
                             {validationErrors.title && (
-                                <div className="error-handling">
-                                    {validationErrors.title}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.title}</p>
                                 </div>
                             )}
                         </div>
@@ -152,8 +155,11 @@ function EditBusinessForm( { businessesObj } ) {
                                 onChange={e => setAddress(e.target.value)}
                             />
                             { validationErrors.address && (
-                                <div className="error-handling">
-                                    { validationErrors.address}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.address}</p>
                                 </div>
                             )}
                         </div>
@@ -169,8 +175,11 @@ function EditBusinessForm( { businessesObj } ) {
                                 onChange={e => setCity(e.target.value)}
                             />
                             { validationErrors.city && (
-                                <div className="error-handling">
-                                    { validationErrors.city}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.city}</p>
                                 </div>
                             )}
                         </div>
@@ -186,8 +195,11 @@ function EditBusinessForm( { businessesObj } ) {
                                 onChange={e => setZipCode(e.target.value)}
                             />
                             { validationErrors.zip_code && (
-                                <div className="error-handling">
-                                    { validationErrors.zip_code}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.zip_code}</p>
                                 </div>
                             )}
                         </div>
@@ -203,8 +215,11 @@ function EditBusinessForm( { businessesObj } ) {
                                 onChange={e => setMedia1(e.target.value)}
                             />
                             {validationErrors.media_1 && (
-                                <div className="error-handling">
-                                    {validationErrors.media_1}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{validationErrors.media_1}</p>
                                 </div>
                             )}
                         </div>
@@ -220,8 +235,11 @@ function EditBusinessForm( { businessesObj } ) {
                                 onChange={e => setDescription(e.target.value)}
                             />
                             { validationErrors.description && (
-                                <div className="error-handling">
-                                    { validationErrors.description}
+                                <div className="form-error-handling">
+                                    <span class="material-icons" id="warning-icon">
+                                        error_outline
+                                    </span>
+                                    <p className="error-content">{ validationErrors.description}</p>
                                 </div>
                             )}
                         </div>

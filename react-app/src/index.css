@@ -40,4 +40,17 @@
     margin-top: 170px;
 }
 
+.form-error-handling {
+    display: flex;
+}
 
+#warning-icon {
+    font-weight: 600;
+    font-size: 25px;
+    color: orange;
+}
+
+.error-content {
+    color: rgb(255, 165, 0);
+    margin-left: 5px;
+}
