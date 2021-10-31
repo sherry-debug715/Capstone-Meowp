@@ -16,7 +16,7 @@ function Card({ src, alt, businessName, businessReview, reviewNum }) {
                         <div className="business-name-container">
                             <h3 className="business-name">{businessName}</h3>
                         </div>
-                        <NavLink to="#" style={{ textDecoration:'none'}}>{reviewNum} Reviews</NavLink>
+                        <NavLink className="card-review-number" to="#" style={{ textDecoration:'none'}}>{reviewNum} Reviews</NavLink>
                         <div className="business-sample-review">
                             <p>"{businessReview}"</p>
                         </div>
