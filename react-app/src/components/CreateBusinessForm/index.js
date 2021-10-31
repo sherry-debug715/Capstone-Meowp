@@ -390,7 +390,7 @@ const CreateBusinessForm = () => {
 
                 <div className="create-category">
                         <label className="new-category">
-                            Create a new category
+                            Can't find a category for your business? Create a new one
                         </label>
                         <input
                             type="text"
