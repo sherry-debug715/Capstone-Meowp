@@ -59,7 +59,7 @@ const BusinessDetail = () => {
                     {currentUser?.id === review?.user_id && (
                         <div className="review-edit-delete-dropdown">
                             <div className="delete-review-button">
-                                <button value={review?.id} onClick={handleReviewDelete}>
+                                <button className="review-edit-delete-btns" value={review?.id} onClick={handleReviewDelete}>
                                     Delete
                                 </button>
                             </div>

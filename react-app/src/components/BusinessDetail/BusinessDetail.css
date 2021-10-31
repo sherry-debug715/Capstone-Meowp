@@ -22,3 +22,32 @@ img.carousels {
     font-size: 48px;
     font-weight: 700;
 }
+
+.review-edit-delete-dropdown {
+    border-radius: 5px;
+    box-shadow: RGB(0 0 0/10%) 0px 1px 20px 0px;
+    width: 65px;
+    height: 55px;
+    position: absolute;
+    background-color: white;
+    left: 30.5%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+}
+
+.review-edit-delete-btns {
+    border:none;
+    background: none;
+    cursor: pointer;
+    color: #5f6368;
+    font-size: 15px;
+    font-weight: 600;
+    transition-duration: .3s;
+    width: 65px;
+}
+
+.review-edit-delete-btns:hover {
+    background-color: rgb(211, 35, 35, 0.5);
+    border-radius: 4px;
+}

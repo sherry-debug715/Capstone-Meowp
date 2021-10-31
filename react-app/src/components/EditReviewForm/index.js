@@ -9,14 +9,14 @@ function EditReviewModal( {review} ) {
         <>
         <div>
             <button
-            className="write-review"
+            className="review-edit-delete-btns"
             onClick={(e) =>
                 {
                     e.stopPropagation()
                     setShowModal(true)}}
 
             >
-                edit
+                Edit
             </button>
         </div>
         {showModal && (
