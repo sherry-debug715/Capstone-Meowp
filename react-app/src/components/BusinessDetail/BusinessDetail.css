@@ -1,14 +1,18 @@
 img.carousels {
     width: 100%;
-    height: 800px;
+    height: 600px;
+}
+
+.header-container {
+    position: relative;
 }
 
 .carousel-content {
-    height: 400px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 2;
 }
 
 .contents {
@@ -30,7 +34,7 @@ img.carousels {
     height: 55px;
     position: absolute;
     background-color: white;
-    left: 30.5%;
+    left: 33%;
     display: flex;
     flex-direction: column;
     row-gap: 3px;
@@ -54,4 +58,12 @@ img.carousels {
 
 #keyboard-backspace {
     color: #333333;
+}
+
+.button-section {
+    margin-top: 10px;
+}
+
+.review-section {
+    margin-top: 50px;
 }
