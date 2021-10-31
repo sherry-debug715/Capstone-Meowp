@@ -57,7 +57,7 @@ const BusinessDetail = () => {
                 editDeleteButtons={
                     <>
                     {currentUser?.id === review?.user_id && (
-                        <>
+                        <div className="review-edit-delete-dropdown">
                             <div className="delete-review-button">
                                 <button value={review?.id} onClick={handleReviewDelete}>
                                     Delete
@@ -66,7 +66,7 @@ const BusinessDetail = () => {
                             <div className="edit-review-button">
                                 <EditReviewModal review={review} />
                             </div>
-                        </>
+                        </div>
                     )}
                     </>
                 }
