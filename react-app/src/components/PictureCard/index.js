@@ -18,7 +18,10 @@ function Card({ src, alt, businessName, businessReview, reviewNum }) {
                         </div>
                         <NavLink className="card-review-number" to="#" style={{ textDecoration:'none'}}>{reviewNum} Reviews</NavLink>
                         <div className="business-sample-review">
-                            <p>"{businessReview}"</p>
+                            <span class="material-icons" id="business-display-comment-icon">
+                                comment
+                            </span>
+                            <p className="picture-card-review">"{businessReview}"</p>
                         </div>
                     </div>
                 </div>

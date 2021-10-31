@@ -42,3 +42,17 @@
 .card-review-number:hover {
     color: rgb(211, 35, 35);
 }
+
+#business-display-comment-icon,
+.picture-card-review {
+    color: rgb(143, 139, 139);
+}
+
+.picture-card-review {
+    font: 20px;
+}
+
+.business-sample-review {
+    display: flex;
+    margin-top: 30px;
+}
