@@ -38,7 +38,7 @@ const BusinessOfCategory = () => {
         <div id="body-container-category">
             <div className="business-of-category-container">
                 <Link to='/businesses'>
-                    <span class="material-icons">
+                    <span class="material-icons" id="keyboard-backspace">
                         keyboard_backspace
                     </span>
                 </Link>

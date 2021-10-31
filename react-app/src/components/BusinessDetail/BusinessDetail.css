@@ -51,3 +51,7 @@ img.carousels {
     background-color: rgb(211, 35, 35, 0.5);
     border-radius: 4px;
 }
+
+#keyboard-backspace {
+    color: #333333;
+}
