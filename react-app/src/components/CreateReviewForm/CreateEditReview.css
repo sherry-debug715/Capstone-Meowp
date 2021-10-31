@@ -73,3 +73,23 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+
+.review-dropdown {
+    width: 50px;
+    border-radius: 4px;
+    margin-left: 8px;
+    outline: none;
+    transition-duration: .3s;
+}
+
+.review-dropdown:hover {
+    border: 1.5px solid #d32323;
+}
+
+.rating-option {
+    transition: .3s;
+}
+
+select .rating-option:hover {
+    background: #d32323;
+}

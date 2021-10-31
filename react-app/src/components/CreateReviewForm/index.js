@@ -69,17 +69,18 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                     <div>
                         <label className="rating-label">
                             Select your rating
-                            <select className="dropdown"
+                            <select
+                                className="review-dropdown"
                                 value={rating}
                                 onChange={e => {
                                     setRating(e.target.value)
                                 }}
                             >
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option class="rating-option">1</option>
+                                <option class="rating-option">2</option>
+                                <option class="rating-option">3</option>
+                                <option class="rating-option">4</option>
+                                <option class="rating-option">5</option>
                             </select>
                         </label>
                     </div>
