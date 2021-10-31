@@ -2,7 +2,7 @@ footer {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    border-top: 1px solid lightgray;
+    /* border-top: 1px solid lightgray; */
     height: 150px;
     width: 100%;
     position: absolute;
@@ -14,8 +14,10 @@ footer {
 
 #footer-upper {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 15px;
 }
 
 
@@ -24,15 +26,36 @@ footer {
     width: 20px;
 }
 
-
-#footer-logo {
-    height:100px;
-    width: 80px;
-}
-
-
 .footer-bottom {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-top: 34px;
+    border-top: 1px solid gray;
 }
 
+.copyright {
+    font-size: 14px;
+    color:rgba(117,114,128,1);
+    margin-top: 10px;
+}
+
+.slogan2,
+.professional-profile {
+    font-weight: 500;
+}
+
+.read-about-me-container{
+    margin-top: 10px;
+    display: flex;
+}
+
+.read-about-me {
+    display: flex;
+}
+.professional-profile {
+    width: 72px;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
