@@ -54,3 +54,17 @@
 .review-rating, .review-content {
     margin-left: 10px;
 }
+
+#rating-icons {
+    font-size: 18px;
+    color: #dc3545;
+}
+
+.review-rating {
+    margin-top: 10px;
+}
+
+.review-content {
+    font-weight: 500;
+    color: #2B273C;
+}
