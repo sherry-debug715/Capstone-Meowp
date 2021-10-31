@@ -113,3 +113,40 @@
 .business-btn-m {
     margin: 0 10px;
 }
+
+.create-category-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.new-category-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0073bb;
+}
+
+.create-category-input {
+    border: 1px solid lightgray;
+    border-radius: 0.2rem;
+    margin-right: 10px;
+    height: 30.8px;
+    width: 310px;
+    padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    transition-duration: .3s;
+}
+
+.create-category-input:hover {
+    border: 1.5px solid #d32323;
+}
+
+.create-category-contents {
+    margin: 10px;
+}

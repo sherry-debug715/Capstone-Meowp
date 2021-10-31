@@ -378,6 +378,7 @@ const CreateBusinessForm = () => {
                     <div className="business-btns">
                         <Button type="submit" className="create-business" variant="danger">Create a New Business</Button>
                         <Button
+                        className="business-btn-m"
                         onClick={() =>{
                             let modal = document.getElementById('modal-background')
                             modal.click()
@@ -388,22 +389,25 @@ const CreateBusinessForm = () => {
                     </div>
                 </form>
 
-                <div className="create-category">
-                        <label className="new-category">
+                <div className="create-category-container">
+                        <label className="new-category-label">
                             Can't find a category for your business? Create a new one
                         </label>
-                        <input
-                            type="text"
-                            required
-                            value={newCategory}
-                            onChange={e => setNewCategory(e.target.value)}
-                        />
-                        { categoryErrors.newCategory && (
-                            <div className="error-handling">
-                                { categoryErrors.newCategory}
-                            </div>
-                        )}
-                        <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>
+                        <div className="create-category-contents">
+                            <input
+                                className="create-category-input"
+                                type="text"
+                                required
+                                value={newCategory}
+                                onChange={e => setNewCategory(e.target.value)}
+                            />
+                            { categoryErrors.newCategory && (
+                                <div className="error-handling">
+                                    { categoryErrors.newCategory}
+                                </div>
+                            )}
+                            <Button variant="danger" size="sm" onClick={handleAddNewCategory}>Save</Button>
+                        </div>
                     </div>
 
             </section>
