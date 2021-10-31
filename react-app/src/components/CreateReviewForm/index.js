@@ -4,7 +4,7 @@ import { useHistory, useParams, NavLink } from 'react-router-dom';
 import { newReviewThunk } from '../../store/reviews';
 import { businessDetailThunk } from '../../store/businesses';
 import Button from 'react-bootstrap/Button';
-
+import './CreateEditReview.css';
 
 
 export const CreateReviewForm = ( {businessDetail} ) => {
@@ -55,12 +55,19 @@ export const CreateReviewForm = ( {businessDetail} ) => {
     };
 
     return (
-        <>
-            <div className="create-review-form-container">
-                <form>
-                    <h1 className="title">{businessDetail?.title}</h1>
-                    <div className="create-review-form">
-                        <label className="rating">
+
+        <form>
+            <div className="review-form-containe">
+                <div className="review-title-st">
+                    <img className="business-brand-img-create" src="https://cdn.discordapp.com/attachments/900530489574703194/903389504939900958/unknown.png" alt="brand"/>
+                    <div className="create-review-title-container">
+                        <h2 className="review-form-title">Write a Review for</h2>
+                        <div className="review-form-business-title">{businessDetail?.title}</div>
+                    </div>
+                </div>
+                <div className="review-form">
+                    <div>
+                        <label className="rating-label">
                             Select your rating
                             <select className="dropdown"
                                 value={rating}
@@ -75,17 +82,18 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                                 <option>5</option>
                             </select>
                         </label>
-                        <input
-                        className="review-content"
-                        value={content}
-                        onChange={e => setContent(e.target.value)}
-                        />
-                        {reviewError.content && (
-                        <div className="review-error-handling">
-                            <p>{reviewError.content}</p>
-                        </div>
-                        )}
                     </div>
+                    <textarea
+                    className="review-form-content"
+                    value={content}
+                    placeholder="Your Review Here: "
+                    onChange={e => setContent(e.target.value)}
+                    />
+                    {reviewError.content && (
+                    <div className="review-error-handling">
+                        <p>{reviewError.content}</p>
+                    </div>
+                    )}
                     {reviewError.error && (
                         <>
                         <div className="review-error-handling">
@@ -99,12 +107,23 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                         </div>
                         </>
                     )}
-                    <div className="post-button-container">
-                        <Button type="submit" variant="danger" size="lg" onClick={handleCreateReview}>Post Review</Button>
-                    </div>
-                </form>
+
+                </div>
+                <div className="review-btn-container">
+                    <Button type="submit" variant="danger" onClick={handleCreateReview}>Post Review</Button>
+                    <Button
+                    onClick={() =>{
+                        let modal = document.getElementById('modal-background')
+                        modal.click()
+                    }}
+                    className="business-btn-m"
+                    variant="secondary">
+                        Cancel
+                    </Button>{' '}
+                </div>
             </div>
-        </>
+        </form>
+
     )
 
 
