@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, Link } from 'react-router-dom';
 import { getAllBusinessesThunk } from '../../store/businesses';
 import Card from '../PictureCard';
 
@@ -37,6 +37,11 @@ const BusinessOfCategory = () => {
     return (
         <div id="body-container-category">
             <div className="business-of-category-container">
+                <Link to='/businesses'>
+                    <span class="material-icons">
+                        keyboard_backspace
+                    </span>
+                </Link>
                 {categoryBusinesses}
             </div>
         </div>
