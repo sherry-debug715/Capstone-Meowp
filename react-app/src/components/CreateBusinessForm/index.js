@@ -165,17 +165,21 @@ const CreateBusinessForm = () => {
 
     return (
         <>
-            <section className="business-form-container">
-                <div className="business-title">
-                    Create Business
-                </div>
-                <form className="create-business-form" onSubmit={handleCreateBusiness}>
-                    <div className="create-business-input-container">
-                        <div className="form-content">
-                            <label className="business-name">
-                                Your Business Name
+            <section>
+                <form className="business-form-container" onSubmit={handleCreateBusiness}>
+                    <div className="business-title-st">
+                        <img className="business-brand-img" src="https://cdn.discordapp.com/attachments/900530489574703194/903389504939900958/unknown.png" alt="brand"/>
+                        <h2 className="business-title">
+                            Create Business
+                        </h2>
+                    </div>
+                    <div className="business-content">
+                        <div className="form-content-create">
+                            <label className="business-labels">
+                                Business Name
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 required
                                 value={title}
@@ -187,11 +191,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-name">
-                                Business URL_1
+                        <div className="form-content-create">
+                            <label className="business-labels">
+                                Business URL_1 (Required)
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 value={media_1}
                                 onChange={e => setMedia1(e.target.value)}
@@ -202,11 +207,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-name">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 Business URL_2 (Optional)
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 value={media_2}
                                 onChange={e => setMedia2(e.target.value)}
@@ -217,11 +223,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-name">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 Business URL_3 (Optional)
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 value={media_3}
                                 onChange={e => setMedia3(e.target.value)}
@@ -232,11 +239,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-name">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 Business URL_4 (Optional)
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 value={media_4}
                                 onChange={e => setMedia4(e.target.value)}
@@ -247,11 +255,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-name">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 Business URL_5 (Optional)
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 value={media_5}
                                 onChange={e => setMedia5(e.target.value)}
@@ -262,10 +271,11 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="categories-select">
+                        <div className="form-content-create">
+                            <label className="business-labels" className="business-category-select">
                                 Select a Category
                                 <select className="dropdown"
+                                    className="business-input-create"
                                     value={category_id}
                                     onChange={e => {
                                         setCategoryId(e.target?.value)
@@ -279,11 +289,12 @@ const CreateBusinessForm = () => {
                                 </select>
                             </label>
                         </div>
-                        <div className="form-content">
-                            <label className="business-address">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 Address
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 required
                                 value={address}
@@ -295,11 +306,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-city">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 City
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 required
                                 value={city}
@@ -311,11 +323,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-state">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 State
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 required
                                 value={state}
@@ -327,11 +340,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-zip-code">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 Zip Code
                             </label>
                             <input
+                                className="business-input-create"
                                 type="text"
                                 required
                                 value={zip_code}
@@ -343,11 +357,12 @@ const CreateBusinessForm = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="form-content">
-                            <label className="business-description">
+                        <div className="form-content-create">
+                            <label className="business-labels">
                                 Tell us about your business
                             </label>
                             <textarea
+                                className="textarea-business-create"
                                 type="text"
                                 required
                                 value={description}
@@ -360,7 +375,7 @@ const CreateBusinessForm = () => {
                             )}
                         </div>
                     </div>
-                    <div className="create-business-buttons">
+                    <div className="business-btns">
                         <Button type="submit" className="create-business" variant="danger">Create a New Business</Button>
                         <Button
                         onClick={() =>{

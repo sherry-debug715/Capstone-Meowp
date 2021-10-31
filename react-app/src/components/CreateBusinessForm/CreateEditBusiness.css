@@ -35,6 +35,11 @@
     margin-top: 30px;
 }
 
+.form-content-create {
+    width: 450px;
+    margin-top: 10px;
+}
+
 .business-input {
     width: 300px;
     height: 40px;
@@ -43,6 +48,41 @@
     color: lightgray;
     outline: none;
     transition-duration: .3s;
+}
+
+.business-input-create {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    outline: none;
+    transition-duration: .3s;
+}
+
+.textarea-business-create {
+    width: 300px;
+    height: 70px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    outline: none;
+    transition-duration: .3s;
+}
+
+.textarea-business-create:hover {
+    border: 1.5px solid #d32323;
+}
+
+.business-input-create:hover {
+    border-bottom: 1.5px solid #d32323;
+}
+
+
+
+.business-category-select {
+    display: flex;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333333;
 }
 
 .business-input:hover {
