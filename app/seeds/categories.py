@@ -11,13 +11,17 @@ def seed_categories():
         name = 'Dry Cleaning'
     )
     categories4 = Category(
-        name = 'Hotels'
+        name = 'Hair Salon'
+    )
+    categories5 = Category(
+        name = 'Gyms'
     )
 
     db.session.add(categories1)
     db.session.add(categories2)
     db.session.add(categories3)
     db.session.add(categories4)
+    db.session.add(categories5)
     db.session.commit()
 
 def undo_categories():
