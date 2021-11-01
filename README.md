@@ -1,134 +1,34 @@
-# Flask React Project
+![image](https://user-images.githubusercontent.com/67481206/139609490-bbdf3cfc-5fcb-4df4-a2f9-9a6910037e53.png)
+## Capstone Project
+### Brief explanation of what the app is and does
+* Meowp is a crowd-sourced local business review site. The site has pages devoted to individual locations, such as restaurants, hotels, and other categories of businesses, where meowp users can submit a review of their products or services, using a one to five star rating scale. Businesses can also update business information and other basic listing information.
 
-This is the starter for the Flask React project.
+### Link to live site
+* https://meowp.herokuapp.com/businesses
 
-## Getting started
+### Link to wiki docs
+* https://github.com/sherry-debug715/Capstone-Meowp/wiki
 
-1. Clone this repository (only this branch)
+### Discussion of technologies used
+#### Back End
+*The app was built using Flask, SQLAlchemy, and Python on the back end with a PostgreSQL database. The backend structure is RESTful API. Model associations are used to minimize database queries to the backend, assuring speed and reliability.
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+#### Front End
+*The front end is built with React and Javascript while utilizing Redux architecture, producing a lightning-fast user interface and calling upon dynamically rendered components.
 
-2. Install dependencies
+### Discussion of two features that show off technical abilities
+* A well designed database schema allowed me easy access to information of categories and reviews tables from business model, minimized front end queries to the backend.
+![image](https://user-images.githubusercontent.com/67481206/139609993-ae529757-6e50-4573-97bd-e1cfba597d73.png)
+* Built 2 different types of Carousel using 2 different technologies (plain JavaScript and React bootstrap)
+#### React bootstrap
+![image](https://user-images.githubusercontent.com/67481206/139610848-7ff11315-e129-4643-8d84-77a4d5604f03.png)
+#### Plain JavaScript
+![image](https://user-images.githubusercontent.com/67481206/139610900-95da292d-dd07-4aba-b524-fb6c75147303.png)
+![image](https://user-images.githubusercontent.com/67481206/139610923-79268292-a44c-45bd-b96f-4ec55e9aa147.png)
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+* All displaying businesses and reviews are built with re-usable Card components.   
+![image](https://user-images.githubusercontent.com/67481206/139610965-110269a1-df38-427e-b770-1f3256eb8518.png)
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
-
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+### Discussion of challenge faced and solution
+* Challenge: I struggled with updating contents in the browser without having to re-render the browser. I solved the problem by taking advantages of the light-weight and instant speed of React store, utilizing dispatch to return updated information from backend database.
+![image](https://user-images.githubusercontent.com/67481206/139611422-19eaa1a8-443a-4014-b516-14fe8f18501d.png)
