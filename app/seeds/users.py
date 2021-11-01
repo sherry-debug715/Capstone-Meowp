@@ -6,13 +6,13 @@ def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', photo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC7jTi0tRmc03WaV4ZxuA-LuKnc2GDUbb5Ng&usqp=CAU', city='New York', state='New York')
+        username='Marnie', email='marnie@aa.io', password='password', photo='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC7jTi0tRmc03WaV4ZxuA-LuKnc2GDUbb5Ng&usqp=CAU', city='New York', state='New York')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='Austin', state='Texas' )
+        username='Bobbie', email='bobbie@aa.io', password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='Austin', state='Texas' )
     raegan = User(
         username='Raegan', email='raegan@aa.io', password='password', photo='https://s3-media0.fl.yelpcdn.com/photo/ROYrT7cuomHHp4A8_mM93g/300s.jpg', city='Marathon', state='Florida' )
     matthew = User(
-        username='matthew', email='matthew@aa.io', password='password', photo='https://s3-media0.fl.yelpcdn.com/photo/AFsVcMxL0dDSnknk6BSPGg/300s.jpg', city='Oakhurst', state='California' )
+        username='Matthew', email='matthew@aa.io', password='password', photo='https://s3-media0.fl.yelpcdn.com/photo/AFsVcMxL0dDSnknk6BSPGg/300s.jpg', city='Oakhurst', state='California' )
     jeanne = User(
         username='Jeanne', email='Jeanne@aa.io', password='password', photo='https://i.redd.it/v0caqchbtn741.jpg', city='San Francisco', state='California' )
     jhone = User(
