@@ -11,7 +11,7 @@ def seed_categories():
         name = 'Dry Cleaning'
     )
     categories4 = Category(
-        name = 'Hair Salon'
+        name = 'Hotels'
     )
     categories5 = Category(
         name = 'Gyms'

@@ -80,7 +80,7 @@ const BusinessDetail = () => {
         <div id="body-container-business">
             <div className="page-container">
                 <Link to='/businesses'>
-                    <span class="material-icons" id="keyboard-backspace">
+                    <span class="material-icons">
                         keyboard_backspace
                     </span>
                 </Link>
