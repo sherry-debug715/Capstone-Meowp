@@ -6,7 +6,7 @@ const MODAL_STYLES = {
     display: 'flex',
     justifyContent: 'center',
     alignContent: 'center',
-    position: 'absolute',
+    position: 'fixed',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
@@ -29,15 +29,15 @@ const OVERLAY_STYLE = {
 
 }
 
-export default function Modal( { open, children, onClose }) {
+export default function Portal( { open, children, onClose }) {
     if(!open) return null
     // if open is false, don't show content; else, render
     // content.
     return ReactDom.createPortal(
         <>
             <div style={OVERLAY_STYLE} />
+            <div id="modal-background" onClick={onClose}></div>
             <div style={MODAL_STYLES}>
-                <button onClick={onClose}>Close Modal</button>
                 {children}
             </div>
         </>,
