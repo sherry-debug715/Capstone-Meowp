@@ -117,7 +117,7 @@ const CreateBusinessForm = () => {
         setMedia2("")
         setMedia3("")
         setMedia4("")
-        setMedia5("")
+        // setMedia5("")
         setAddress("")
         setCity("")
         setState("")
