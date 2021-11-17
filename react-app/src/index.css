@@ -8,7 +8,7 @@
 #root {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: minmax(120px) auto 150px;
+    grid-template-rows: 115px auto 150px;
     grid-template-areas:
     "header"
     "body"
@@ -29,15 +29,18 @@
 
 #body-container-businesses {
     margin-bottom: 300px;
+    margin-top: 30px;
+
 }
 
 #body-container-business {
     margin-bottom: 300px;
+    margin-top: 30px;
 }
 
 #body-container-category {
     margin-bottom: 300px;
-    margin-top: 0px;
+    margin-top: 30px;
 }
 
 .form-error-handling {
