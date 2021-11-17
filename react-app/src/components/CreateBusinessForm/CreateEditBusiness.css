@@ -53,6 +53,9 @@
 .form-content-create {
     width: 450px;
     margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+
 }
 
 .business-input {
@@ -164,4 +167,53 @@
 
 .create-category-contents {
     margin: 10px;
+}
+
+
+select {
+   appearance: none;
+   padding-left: 1em;
+}
+
+#custom-select {
+    position: relative;
+    margin-left: 5px;
+}
+
+.custom-arrow {
+    position: absolute;
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    bottom:0;
+    right: 0;
+    pointer-events: none;
+}
+
+.custom-arrow::before,
+.custom-arrow::after {
+    --size: 0.3em;
+    content: '';
+    position:absolute;
+    width:0;
+    height:0;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-arrow::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid rgba(204, 59, 59, 0.5);
+    top: 20%;
+
+}
+
+.custom-arrow::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid rgba(204, 59, 59, 0.5);
+    top: 60%;
 }

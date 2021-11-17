@@ -290,20 +290,24 @@ const CreateBusinessForm = () => {
                         <div className="form-content-create">
                             <label className="business-labels" className="business-category-select">
                                 Select a Category
+                            </label>
+                            <div id="custom-select">
                                 <select className="dropdown"
                                     className="business-input-create"
                                     value={category_id}
                                     onChange={e => {
                                         setCategoryId(e.target?.value)
                                     }}
-                                >
+                                    >
+                                    <option selected disabled>--select a category--</option>
                                     {categoriesArray?.map(category => {
                                         return (
                                             <option value={category?.id}>{category?.name}</option>
-                                        )
+                                            )
                                     })}
                                 </select>
-                            </label>
+                                <span class="custom-arrow"></span>
+                            </div>
                         </div>
                         <div className="form-content-create">
                             <label className="business-labels">
@@ -349,13 +353,15 @@ const CreateBusinessForm = () => {
                             <label className="business-labels" >
                                 State
                             </label>
-                                <select data-custom
+                            <div id="custom-select">
+                                <select
                                     value={state}
                                     className="business-input-create"
                                     onChange={e => {
                                         setState(e.target?.value)
                                     }}
                                 >
+                                    <option selected disabled>--select a state--</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
                                     <option value="AZ">Arizona</option>
@@ -408,6 +414,8 @@ const CreateBusinessForm = () => {
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                 </select>
+                                <span class="custom-arrow"></span>
+                            </div>
                         </div>
                         <div className="form-content-create">
                             <label className="business-labels">
