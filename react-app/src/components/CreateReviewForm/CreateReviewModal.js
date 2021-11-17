@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
+import Portal from '../../portal/Potal';
 import CreateReviewForm from '.';
 import Button from 'react-bootstrap/Button'
 
 
 function CreateReviewModal( {businessDetail} ) {
-    const [showModal, setShowModal] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
         <>
         <div>
             <Button
             className="write-review"
             variant="danger"
-            onClick={() => setShowModal(true)}
+            onClick={() => setIsOpen(true)}
             >
                 Write a Review
             </Button>
         </div>
-         {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
-              <CreateReviewForm businessDetail={businessDetail} />
-            </Modal>
-          )}
+          <Portal open={isOpen} onClose={() => setIsOpen(false)}>
+            <CreateReviewForm businessDetail={businessDetail} />
+          </Portal>
         </>
     )
 }
