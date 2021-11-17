@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
+import Portal from '../../portal/Potal';
 import CreateBusinessForm from './index';
 import '../NavBar/NavBar.css'
 
 
 function CreateBusinessModal() {
-    const [showModal, setShowModal] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
         <>
         <div>
             <button
             id='create-business-btn'
-            onClick={() => setShowModal(true)}
+            onClick={() => setIsOpen(true)}
             >
                 Create A New Business
             </button>
         </div>
-         {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
-              <CreateBusinessForm />
-            </Modal>
-          )}
+          <Portal open={isOpen} onClose={() => setIsOpen(false)}>
+            <CreateBusinessForm />
+          </Portal>
         </>
     )
 }
