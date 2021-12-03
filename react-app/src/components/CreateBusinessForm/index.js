@@ -179,7 +179,7 @@ const CreateBusinessForm = () => {
                             <input
                                 className="business-input-create"
                                 type="text"
-                                required
+                                // required
                                 value={title}
                                 onChange={e => setTitle(e.target.value)}
                             />
@@ -316,7 +316,7 @@ const CreateBusinessForm = () => {
                             <input
                                 className="business-input-create"
                                 type="text"
-                                required
+                                // required
                                 value={address}
                                 onChange={e => setAddress(e.target.value)}
                             />
@@ -336,7 +336,7 @@ const CreateBusinessForm = () => {
                             <input
                                 className="business-input-create"
                                 type="text"
-                                required
+                                // required
                                 value={city}
                                 onChange={e => setCity(e.target.value)}
                             />
@@ -444,7 +444,7 @@ const CreateBusinessForm = () => {
                             <textarea
                                 className="textarea-business-create"
                                 type="text"
-                                required
+                                // required
                                 value={description}
                                 onChange={e => setDescription(e.target.value)}
                             />
@@ -480,7 +480,7 @@ const CreateBusinessForm = () => {
                             <input
                                 className="create-category-input"
                                 type="text"
-                                required
+                                // required
                                 value={newCategory}
                                 onChange={e => setNewCategory(e.target.value)}
                             />
