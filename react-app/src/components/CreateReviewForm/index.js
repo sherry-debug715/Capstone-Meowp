@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams, NavLink } from 'react-router-dom';
 import { newReviewThunk } from '../../store/reviews';
 import { businessDetailThunk } from '../../store/businesses';
 import Button from 'react-bootstrap/Button';
 import './CreateEditReview.css';
-
+import RatingIcon from './RatingIcon';
 
 export const CreateReviewForm = ( {businessDetail} ) => {
 
@@ -14,9 +14,23 @@ export const CreateReviewForm = ( {businessDetail} ) => {
     const currentUser = useSelector( state => state.session.user);
     const businessesStore = useSelector(state => state?.businesses);
     const { businessId } = useParams();
-    const [ rating, setRating ] = useState(1);
     const [ content, setContent ] = useState("");
     const [reviewError, setReviewError] = useState({})
+    const [ rating, setRating ] = useState(0);
+    const [hoverRating, setHoverRating] = React.useState(0);
+
+    const onMouseEnter = (index) => {
+        setHoverRating(index);
+      };
+
+    const onMouseLeave = () => {
+    setHoverRating(0);
+    };
+
+    const onSaveRating = (index) => {
+        setRating(index);
+    };
+
 
     const validateReview = () => {
         const reviewError = {};
@@ -69,7 +83,7 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                     <div>
                         <label className="rating-label">
                             Select your rating
-                            <select
+                            {/* <select
                                 className="review-dropdown"
                                 value={rating}
                                 onChange={e => {
@@ -81,7 +95,20 @@ export const CreateReviewForm = ( {businessDetail} ) => {
                                 <option class="rating-option">3</option>
                                 <option class="rating-option">4</option>
                                 <option class="rating-option">5</option>
-                            </select>
+                            </select> */}
+                            <div className="box flex">
+                                {[1, 2, 3, 4, 5].map((index) => {
+                                    return (
+                                    <RatingIcon
+                                        index={index}
+                                        rating={rating}
+                                        hoverRating={hoverRating}
+                                        onMouseEnter={onMouseEnter}
+                                        onMouseLeave={onMouseLeave}
+                                        onSaveRating={onSaveRating} />
+                                    )
+                                })}
+                            </div>
                         </label>
                     </div>
                     <textarea
